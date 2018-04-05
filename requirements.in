@@ -1,0 +1,8 @@
+Django<2.0
+django-dotenv
+dj-database-url
+psycopg2
+raven
+django-backupdb
+Werkzeug
+django-extensions

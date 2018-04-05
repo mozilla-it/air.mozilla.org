@@ -1,0 +1,7 @@
+{% if not settings.DEBUG %}
+User-Agent: *
+Disallow: /admin/
+{% else %}
+User-Agent: *
+Disallow: /
+{% endif %}
