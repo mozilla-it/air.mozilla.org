@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'raven.contrib.django.raven_compat',
     'backupdb',
     'django_extensions',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
+)

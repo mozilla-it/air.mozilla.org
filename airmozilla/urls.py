@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 import django.views.generic
 
+from . import views
+
 
 class SettingsTemplateView(django.views.generic.TemplateView):
     def get_context_data(self, **kwargs):
@@ -31,6 +33,7 @@ urlpatterns = [
     url('^robots.txt$', SettingsTemplateView.as_view(
         template_name='robots.txt', content_type='text/plain'
     )),
+    url('^$', views.IndexView.as_view()),
     url(r'^admin/', admin.site.urls),
 ]
 

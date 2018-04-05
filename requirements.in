@@ -6,3 +6,5 @@ raven
 django-backupdb
 Werkzeug
 django-extensions
+django-compressor
+django-pyscss

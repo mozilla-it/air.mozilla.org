@@ -1,0 +1,10 @@
+{% load compress staticfiles %}<!DOCTYPE html>
+<html>
+  {% compress css %}
+  <link rel="stylesheet" href="{% static 'css/main.scss' %}" type="text/x-scss"/>
+  {% endcompress %}
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
