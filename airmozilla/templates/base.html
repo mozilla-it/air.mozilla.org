@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
-    <script src="js/simplebar.js"></script>
+    <script src="{% static 'js/simplebar.js' %}"></script>
   {% compress css %}
-    <link href="css/airmozilla.scss" rel="stylesheet">
+    <link href="{% static 'css/airmozilla.scss' %}" rel="stylesheet">
   {% endcompress %}
   </head>
   <body>
     <header>
-      <img id="logo" src="image/logo.svg" alt="AirMozilla" />
+      <img id="logo" src="{% static 'image/logo.svg' %}" alt="AirMozilla" />
       <nav>
         <form>
           <a class="search" href="#">
@@ -52,7 +52,7 @@
     <footer>
       <div>
         <div class="copyright">
-          <img src="image/logo.svg" alt="AirMozilla" />
+          <img src="{% static 'image/logo.svg' %}" alt="AirMozilla" />
           <p>Except where otherwise noted, content on this site is licensed under the Creative Commons Attribution Share-Alike License v3.0 or any later version.</p>
         </div>
 
@@ -70,15 +70,15 @@
 
         <div class="social">
           <a href="#">
-            <img src="image/facebook.svg" alt="Facebook" />
+            <img src="{% static 'image/facebook.svg' %}" alt="Facebook" />
             Facebook Live Events
           </a>
           <a href="#">
-            <img src="image/twitter.svg" alt="twitter" />
+            <img src="{% static 'image/twitter.svg' %}" alt="twitter" />
             Follow us on Twitter
           </a>
           <a href="#">
-            <img src="image/youtube.svg" alt="Youtube" />
+            <img src="{% static 'image/youtube.svg' %}" alt="Youtube" />
             Follow us on Youtube
           </a>
         </div>
