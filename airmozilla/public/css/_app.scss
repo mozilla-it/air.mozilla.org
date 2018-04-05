@@ -1,0 +1,496 @@
+/* Document
+-------------------------------------------------------*/
+
+html, body {
+  background: $black;
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+/* Header
+-------------------------------------------------------*/
+
+header {
+  background: $black-two;
+  height: 50px;
+  padding: 0 29px;
+
+  #logo {
+    margin: 14px 0 0 0;
+  }
+
+  nav {
+    float: right;
+
+    form {
+      display: inline-block;
+      margin-right: 34px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      line-height: 50px;
+      position: relative;
+    }
+
+    a.search {
+      svg {
+        vertical-align: -5px;
+      }
+
+      &:hover, &:active {
+        #icon-search-fill {
+          fill: $white;
+        }
+      }
+    }
+
+    a.login {
+      color: $white;
+
+      &:before {
+        content: "";
+        border-left: 1px solid rgba($pale-grey, 0.2);
+        position: absolute;
+        top: 17px;
+        height: 16px;
+        left: -17px;
+      }
+
+      svg {
+        margin-left: 8px;
+        vertical-align: -3px;
+      }
+
+      &:hover, &:active {
+        #icon-user-fill {
+          fill: $white;
+        }
+      }
+    }
+  }
+}
+
+/* Body
+-------------------------------------------------------*/
+
+main {
+  background: $white;
+
+  > div {
+    display: block;
+    margin: 0 auto;
+    padding: 30px 0;
+    max-width: 1170px;
+    width: 80%;
+  }
+
+  hr {
+    border-top: 6px solid $white-two;
+    margin: 40px 0 30px 0;
+  }
+}
+
+section.upcoming {
+  @include flex-box;
+  @include flex-wrap;
+
+  h1 {
+    @include flex(0 0 100%);
+    margin-bottom: 17px;
+  }
+
+  div.feature {
+    @include flex(0 0 62%);
+    padding-right: 30px;
+
+    @include bp(mobile) {
+      @include flex(0 0 100%);
+      padding-right: 0;
+      padding-bottom: 36px;
+    }
+
+    article {
+      overflow: visible;
+    }
+
+    a.image {
+      margin-bottom: 24px;
+
+      .image-inner {
+        padding-bottom: 50.75%;
+
+        span.play {
+          border-radius: 58px;
+          width: 58px;
+          height: 58px;
+          background: $white;
+          position: absolute;
+          top: calc(50% - 29px);
+          left: calc(50% - 29px);
+          box-shadow: $light-red 0px 0px 20px;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: normal;
+    }
+  }
+
+  div.list {
+    @include flex(0 0 38%);
+    max-height: 420px;
+    overflow: scroll;
+
+    &:after {
+      content: "";
+      border-left: 2px solid rgba($warm-grey,0.2);
+      position: absolute;
+      top: 0;
+      right: 4px;
+      height: 100%;
+      width: 0;
+    }
+
+    @include bp(mobile) {
+      @include flex(0 0 100%);
+    }
+
+    article {
+      clear: both;
+      padding-right: 20px;
+      margin-bottom: 30px;
+      float: left;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a.image {
+      float: left;
+      width: 37%;
+
+      .image-inner {
+        padding-bottom: 70.83%;
+        border-bottom: 4px solid $light-red;
+
+        span.play img {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+
+    div.meta {
+      float: right;
+      width: 59%;
+    }
+  }
+}
+
+section.recent {
+  @include flex-box;
+  @include flex-wrap;
+  position: relative;
+  left: -15px;
+  width: calc(100% + 30px);
+
+  h2 {
+    @include flex(0 0 100%);
+    margin-bottom: 24px;
+    padding: 0 15px;
+  }
+
+  article {
+    padding: 0 15px 30px 15px;
+
+    a.image {
+      margin-bottom: 10px;
+
+      .image-inner {
+        border-bottom: 4px solid $dark-sky-blue;
+        padding-bottom: 50.75%;
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    p.desc {
+      font-size: 14px;
+    }
+  }
+
+  @include bp(mobile-up) {
+
+    article:nth-of-type(1),
+    article:nth-of-type(2) {
+      @include flex(0 0 50%);
+    }
+
+    article:nth-of-type(n+3) {
+      @include flex(0 0 25%);
+
+      p.desc {
+        display: none;
+      }
+    }
+  }
+
+  @include bp(mobile) {
+
+    article:nth-of-type(3n),
+    article:nth-of-type(3n-1) {
+      @include flex(0 0 50%);
+
+      p.desc {
+        display: none;
+      }
+    }
+
+    article:nth-of-type(3n-2) {
+      @include flex(0 0 100%);
+    }
+  }
+}
+
+article {
+  min-width: 0;
+}
+
+article *:not(.image) {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+a.image {
+  transition: box-shadow 0.15s ease 0s;
+  box-shadow: rgba($black,0.0) 0px 0px 0px;
+  border-radius: 4px;
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+  text-decoration: none;
+
+  .image-inner {
+    height: 0;
+    border-radius: 4px;
+    background-color: $white-two;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    span.play {
+      border-radius: 40px;
+      width: 40px;
+      height: 40px;
+      background: $white;
+      position: absolute;
+      top: calc(50% - 20px);
+      left: calc(50% - 20px);
+      text-align: center;
+      transition: all 0.15s ease 0s;
+      transform: scale(1.0);
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-35%);
+      }
+    }
+  }
+
+  &:hover, &:active {
+    box-shadow: rgba($black,0.2) 0px 3px 8px, rgba($black,0.1) 0px 3px 20px;
+    .image-inner span.play {
+      transform: scale(1.1);
+    }
+  }
+}
+
+span.flag {
+  background: $light-red;
+  border-radius: 4px;
+  color: $white;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 8px 17px;
+  display: inline-block;
+  position: absolute;
+  top: 34px;
+  left: -20px;
+
+  img {
+    vertical-align: -4px;
+    margin-right: 4px;
+  }
+}
+
+p.tag {
+  color: $light-red;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  img {
+    vertical-align: -4px;
+    margin-right: 3px;
+  }
+}
+
+p.desc {
+  font-size: 12px;
+  margin-bottom: 3px;
+  color: $warm-grey;
+}
+
+p.date {
+  font-size: 12px;
+  font-weight: 600;
+  color: $warm-grey;
+}
+
+a.past-events {
+  border-radius: 4px;
+  border: 1px solid rgba($warm-grey,0.5);
+  display: block;
+  font-weight: 600;
+  color: $black;
+  padding: 12px 17px;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover, &:active {
+    border-color: $warm-grey;
+  }
+}
+
+/* Footer
+-------------------------------------------------------*/
+
+footer {
+  > div {
+    display: block;
+    margin: 0 auto;
+    padding: 56px 0;
+    max-width: 1170px;
+    width: 80%;
+  }
+
+  div.copyright {
+    float: left;
+    width: 40%;
+
+    @include bp(mobile) {
+      float: none;
+      width: auto;
+    }
+
+    p {
+      color: $warm-grey;
+      margin: 41px 0 0 0;
+    }
+  }
+
+  nav {
+    float: right;
+    width: 50%;
+    columns: 2;
+
+    @include bp(mobile) {
+      float: none;
+      width: auto;
+      margin-top: 40px;
+    }
+
+    a {
+      color: $white;
+      display: inline-block;
+      margin-bottom: 11px;
+      text-decoration: none;
+      width: 100%;
+
+      &:hover, &:active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  hr {
+    border-top: 1px solid rgba($white,0.1);
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 61px 0 26px 0;
+  }
+
+  div.social {
+    float: right;
+    padding-bottom: 38px;
+    text-align: right;
+    width: 100%;
+
+    a {
+      border-radius: 4px;
+      color: $white;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 1px solid $greyish-brown;
+      padding: 12px 17px;
+      margin-left: 20px;
+      text-align: center;
+
+      @include bp(mobile) {
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+
+      img {
+        margin-right: 8px;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+
+        &.facebook {
+          top: -2px;
+        }
+      }
+
+      &:hover, &:active {
+        border-color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<path d="M9,0.75 C4.425,0.75 0.75,4.425 0.75,9 C0.75,13.575 4.425,17.25 9,17.25 C13.575,17.25 17.25,13.575 17.25,9 C17.25,4.425 13.575,0.75 9,0.75 Z M9,15.75 C5.25,15.75 2.25,12.75 2.25,9 C2.25,5.25 5.25,2.25 9,2.25 C12.75,2.25 15.75,5.25 15.75,9 C15.75,12.75 12.75,15.75 9,15.75 Z M9,5.25 C6.9375,5.25 5.25,6.9375 5.25,9 C5.25,11.0625 6.9375,12.75 9,12.75 C11.0625,12.75 12.75,11.0625 12.75,9 C12.75,6.9375 11.0625,5.25 9,5.25 Z" id="path-1-record"></path>
+</defs>
+<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<use fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1-record"></use>
+</g>
+</svg>

@@ -1,0 +1,257 @@
+/*
+ * Mixins SCSS File
+ * @author Justin Stollsteimer - Fusionbox, Inc.
+ * http://www.fusionbox.com
+ *
+ */
+
+$MQs: true;
+@mixin bp($point) {
+  @if ($MQs) {
+    $bp-mobile: "(max-width: 640px)";
+    $bp-mobile-up: "(min-width: 641px)";
+
+    @if $point == mobile {
+      @media #{$bp-mobile} { @content; }
+    }
+    @else if $point == mobile-up {
+      @media #{$bp-mobile-up} { @content; }
+    }
+  }
+}
+
+@mixin card {
+  @include rounded($round);
+  border: 1px solid rgba(black,0.25);
+  background: white;
+}
+
+@mixin box-sizing($what: border-box) {
+   -webkit-box-sizing: $what;
+   -moz-box-sizing: $what;
+   box-sizing: $what;
+}
+
+@mixin shadow($color: rgba(0,0,0,0.3), $left: 0px, $top: 3px, $blur: 5px, $spread: 0px) {
+    -o-box-shadow: $left $top $blur $spread $color;
+    -ms-box-shadow: $left $top $blur $spread $color;
+    -moz-box-shadow: $left $top $blur $spread $color;
+    -webkit-box-shadow: $left $top $blur $spread $color;
+  box-shadow: $left $top $blur $spread $color;
+}
+
+@mixin inset-shadow($color: rgba(0,0,0,0.3), $left: 0px, $top: 3px, $blur: 5px, $spread: 0px) {
+    -o-box-shadow: inset $left $top $blur $spread $color;
+    -ms-box-shadow: inset $left $top $blur $spread $color;
+    -moz-box-shadow: inset $left $top $blur $spread $color;
+    -webkit-box-shadow: inset $left $top $blur $spread $color;
+  box-shadow: inset $left $top $blur $spread $color;
+}
+
+@mixin text-shadow($color: rgba(0,0,0,0.3), $left: 0px, $top: 3px, $blur: 5px) {
+    -o-text-shadow: $left $top $blur $color;
+    -moz-text-shadow: $left $top $blur $color;
+    -webkit-text-shadow: $left $top $blur $color;
+  text-shadow: $left $top $blur $color;
+}
+
+@mixin multi-shadow($shadow) {
+    -o-box-shadow: #{$shadow};
+    -ms-box-shadow: #{$shadow};
+    -moz-box-shadow: #{$shadow};
+    -webkit-box-shadow: #{$shadow};
+  box-shadow: #{$shadow};
+}
+
+@mixin rounded($radius) {
+    -o-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin gradient($bottom,$top) {
+  background-color: $bottom;
+    background-image: -o-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -ms-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -moz-linear-gradient(center bottom, $bottom 1%, $top 100%);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.01, $bottom), color-stop(1.00, $top));
+}
+
+@mixin hgradient($left,$right) {
+  background-color: $right;
+    background-image: -o-linear-gradient(left, $left 1%, $right 100%);
+    background-image: -ms-linear-gradient(left, $left 1%, $right 100%);
+    background-image: -moz-linear-gradient(left, $left 1%, $right 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0.01, $left), color-stop(1.00, $right));
+}
+
+@mixin overlay($bottom,$top) {
+  background-image: -o-linear-gradient(center bottom, $bottom 1%, $top 50%);
+  background-image: -ms-linear-gradient(center bottom, $bottom 1%, $top 50%);
+  background-image: -moz-linear-gradient(center bottom, $bottom 1%, $top 50%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.01, $bottom), color-stop(0.50, $top));
+}
+
+@mixin transition($basic: all 0.25s ease 0s) {
+    -o-transition: #{$basic};
+    -ms-transition: #{$basic};
+    -moz-transition: #{$basic};
+    -webkit-transition: #{$basic};
+  transition: #{$basic};
+}
+
+@mixin delay($time: 0.5s)
+{
+  -o-animation-delay: $time;
+  -ms-animation-delay: $time;
+  -moz-animation-delay: $time;
+  -webkit-animation-delay: $time;
+  animation-delay: $time;
+}
+
+@mixin transform($transformation)
+{
+  -o-transform: #{$transformation};
+  -ms-transform: #{$transformation};
+  -moz-transform: #{$transformation};
+  -webkit-transform: #{$transformation};
+  transform: #{$transformation};
+}
+
+@mixin transform-origin($transformationorigin)
+{
+  -o-transform-origin: #{$transformationorigin};
+  -ms-transform-origin: #{$transformationorigin};
+  -moz-transform-origin: #{$transformationorigin};
+  -webkit-transform-origin: #{$transformationorigin};
+  transform-origin: #{$transformationorigin};
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin wrapper {
+  display: block;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+@mixin inner {
+  display: block;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+@mixin default {
+  display: inline;
+  float: left;
+  height: auto;
+  width: 100%;
+}
+
+@mixin clearfix {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+
+@mixin html {
+  h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, hgroup, hr {
+    display: block !important;
+    float: none !important;
+    margin: 0px 0px 15px 0px !important;
+    width: auto !important;
+  }
+  .fl { float: left; margin: 0px 25px 15px 0px; }
+  .fr { float: right; margin: 0px 0px 15px 25px; }
+  img { &.left { float: left; margin: 5px 25px 15px 0px; } &.right { float: right; margin: 5px 0px 15px 25px; }}
+  table { display: table; width: 100% !important; }
+}
+
+
+@mixin flex-box {
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  display: -webkit-flex;
+}
+
+@mixin flex($col: 1) {
+  -moz-box-flex: #{$col};         /* OLD - Firefox 19- */
+  -ms-flex: #{$col};              /* IE 10 */
+  flex: #{$col};                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-flex: #{$col};      /* OLD - iOS 6-, Safari 3.1-6 */
+  -webkit-flex: #{$col};          /* Chrome */
+}
+
+@mixin align-self($pos: center) {
+  -moz-align-self: $pos;
+  -ms-align-self: $pos;
+  align-self: $pos;
+  -webkit-align-self: $pos;
+}
+
+@mixin flex-wrap {
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin vertical-align-parent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin horizontal-align {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin horizontal-align-parent {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+@mixin animation-delay($delay:0s) {
+  -webkit-animation-delay: $delay;
+  -moz-animation-delay: $delay;
+  -ms-animation-delay: $delay;
+  -o-animation-delay: $delay;
+  animation-delay: $delay;
+}
+
+@mixin animation-duration($duration:0s) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -ms-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+}
