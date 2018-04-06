@@ -19,6 +19,5 @@ CACHES = {
 ALLOWED_HOSTS = ['airmozilla.dev.fusionbox.com']
 
 BACKUPDB_DIRECTORY = os.environ['BACKUP_DIR']
-MEDIA_ROOT = os.environ['MEDIA_ROOT']
 STATIC_ROOT = os.environ['STATIC_ROOT']
 SECRET_KEY = os.environ['SECRET_KEY']
