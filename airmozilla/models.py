@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Event(models.Model):
     # max length comes from their docs
-    event_key = models.PositiveIntegerField()
+    event_key = models.PositiveIntegerField(primary_key=True)
     title = models.CharField(max_length=355)
     description = models.TextField()
     image = models.CharField(max_length=255)
