@@ -157,6 +157,10 @@ section.upcoming {
       font-size: 24px;
       font-weight: normal;
     }
+
+    p.desc {
+      display: none;
+    }
   }
 
   div.list {
@@ -183,6 +187,7 @@ section.upcoming {
       padding-right: 20px;
       margin-bottom: 30px;
       float: left;
+      width: 100%;
 
       &:last-of-type {
         margin-bottom: 0;
