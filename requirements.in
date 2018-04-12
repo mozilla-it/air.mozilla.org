@@ -8,3 +8,6 @@ Werkzeug
 django-extensions
 django-compressor
 django-pyscss
+requests
+lxml
+python-dateutil
