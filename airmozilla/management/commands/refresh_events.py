@@ -150,6 +150,9 @@ class Command(BaseCommand):
             if privacy_strategy.is_private(event_node):
                 continue
 
+            if event_node.Active == 0:
+                continue
+
             time_range = retrieve_event_time_range(event_node.EventKey)
 
             assert time_range, "Event didn't have a start/end time when we expected it to."
