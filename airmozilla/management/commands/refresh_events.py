@@ -39,6 +39,10 @@ class INXPOAPIException(Exception):
     pass
 
 
+class EventNotFoundException(INXPOAPIException):
+    pass
+
+
 def parse_api_datetime(s):
     d = dateutil.parser.parse(str(s))
     return pytz.timezone('US/Central').localize(d)
@@ -54,7 +58,11 @@ def retrieve_xml(url):
 
     if data.get('OpCodesInError') not in {'0', None}:
         if hasattr(data, 'OpCodeResult'):
-            raise INXPOAPIException(data.OpCodeResult.get('Message'))
+            message = data.OpCodeResult.get('Message')
+            if data.OpCodeResult.get('Status') == '51':
+                raise EventNotFoundException(message)
+            else:
+                raise INXPOAPIException(message)
         else:
             raise INXPOAPIException(data.get('APICallDiagnostic'))
 
@@ -153,7 +161,11 @@ class Command(BaseCommand):
             if event_node.Active == 0:
                 continue
 
-            time_range = retrieve_event_time_range(event_node.EventKey)
+            try:
+                time_range = retrieve_event_time_range(event_node.EventKey)
+            except EventNotFoundException:
+                # event was probably deleted since we retrieved the list
+                continue
 
             assert time_range, "Event didn't have a start/end time when we expected it to."
 
