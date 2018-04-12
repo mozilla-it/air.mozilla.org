@@ -1,4 +1,7 @@
 from django.db import models
+from django.conf import settings
+from django.utils.http import urlencode
+from django.utils import timezone
 
 
 class Event(models.Model):
@@ -13,3 +16,21 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def link(self):
+        return 'https://onlinexperiences.com/Launch/Event.htm?' + urlencode({
+            'ShowKey': settings.INXPO_PARAMETERS['SHOW_KEY'],
+            'DisplayItem': 'E' + str(self.event_key),
+        })
+
+    @property
+    def image_url(self):
+        if self.image.startswith('https://'):
+            return self.image
+        else:
+            return 'https://onlinexperiences.com' + self.image
+
+    @property
+    def is_streaming_now(self):
+        return self.starts_at <= timezone.now() <= self.ends_at

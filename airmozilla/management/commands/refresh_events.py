@@ -1,4 +1,5 @@
 import collections
+import urllib.parse
 
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -155,9 +156,10 @@ class Command(BaseCommand):
 
             Event.objects.create(
                 event_key=event_node.EventKey,
-                title=event_node.Description,
-                description=event_node.Abstract,
+                title=urllib.parse.unquote(str(event_node.Description)),
+                description=urllib.parse.unquote(str(event_node.Abstract)),
                 created_at=parse_api_datetime(event_node.CreatedOnDate),
+                image=event_node.IconImage,
                 starts_at=time_range.starts_at,
                 ends_at=time_range.ends_at,
             )
