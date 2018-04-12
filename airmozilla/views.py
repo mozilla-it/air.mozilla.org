@@ -10,9 +10,11 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['upcoming_events'] = Event.objects.filter(
+        # List this because the template slices it and we don't want to do more
+        # queries.
+        context['upcoming_events'] = list(Event.objects.filter(
             ends_at__gte=timezone.now()
-        ).order_by('starts_at')
+        ).order_by('starts_at'))
         context['past_events'] = Event.objects.filter(
             ends_at__lt=timezone.now()
         ).order_by('-ends_at')[:6]
