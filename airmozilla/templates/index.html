@@ -63,26 +63,10 @@
 
 <hr />
 
-<section class="recent">
+<section class="recent" id="recent-container">
   <h2>Recent Events</h2>
-  {% for event in past_events %}
-  <article>
-    <a class="image" href="{{ event.link }}">
-      <div class="image-inner" style="background-image: url({{ event.image_url }})">
-      </div>
-    </a>
-    <div class="meta">
-      <h3>{{ event.title }}</h3>
-      <p class="desc">{{ event.description|linebreaksbr }}</p>
-      <p class="date">
-        <time datetime="{{ event.starts_at.isoformat }}">
-          {{ event.ends_at|naturaltime }}
-        </time>
-      </p>
-    </div>
-  </article>
-  {% endfor %}
+  {% include "_event_list.html" with events=past_events %}
 </section>
 
-<a href="#" class="past-events">Past Events</a>
+<a href class="past-events" id="load-more-events">Past Events</a>
 {% endblock %}

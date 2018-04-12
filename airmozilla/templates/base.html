@@ -13,7 +13,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
-    <script src="{% static 'js/simplebar.js' %}"></script>
     {% compress css %}
       <link href="{% static 'css/airmozilla.scss' %}" rel="stylesheet" type="text/x-scss">
     {% endcompress %}
@@ -96,5 +95,11 @@
         </div>
       </div>
     </footer>
+    {% compress js %}
+      <script src="{% static 'js/simplebar.js' %}"></script>
+      <script src="{% static 'js/promise-polyfill.js' %}"></script>
+      <script src="{% static 'js/fetch.js' %}"></script>
+      <script src="{% static 'js/airmozilla.js' %}"></script>
+    {% endcompress %}
   </body>
 </html>

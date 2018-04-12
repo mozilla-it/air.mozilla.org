@@ -32,4 +32,6 @@ urlpatterns = [
         template_name='robots.txt', content_type='text/plain'
     )),
     url('^$', views.IndexView.as_view()),
+    # this URL is hardcoded in airmozilla.js
+    url('^load-more/$', views.LoadMoreEventsView.as_view()),
 ]
