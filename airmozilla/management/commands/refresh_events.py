@@ -2,7 +2,7 @@ import collections
 import urllib.parse
 
 from django.core.management.base import BaseCommand
-from django.db import transaction
+from django.db import transaction, connection
 from django.conf import settings
 
 import requests
@@ -147,8 +147,14 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        # Doing this at the beginning prevents more than one refresh task from
-        # running at the same time.
+        with connection.cursor() as cursor:
+            # This protectes against multiple refresh tasks running at the same
+            # time, which could end up with duplicate copies of events. (DELETE
+            # + INSERT is not a concurrency-safe way to replace the contents of
+            # a table). This lock mode allows concurrent reads, so the frontend
+            # is fine while we're refreshing.
+            cursor.execute('LOCK TABLE %s IN EXCLUSIVE MODE' % Event._meta.db_table)
+
         Event.objects.all().delete()
 
         events = retrieve_events()
