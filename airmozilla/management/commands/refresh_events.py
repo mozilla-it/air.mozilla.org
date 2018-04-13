@@ -48,8 +48,8 @@ def parse_api_datetime(s):
     return pytz.timezone('US/Central').localize(d)
 
 
-def retrieve_xml(url):
-    response = requests.get(url, timeout=30)
+def retrieve_xml(url, session=requests.session()):
+    response = session.get(url, timeout=30)
     response.raise_for_status()
     data = objectify.fromstring(response.content)
 
