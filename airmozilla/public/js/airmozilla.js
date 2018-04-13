@@ -14,7 +14,7 @@
         var parser = new DOMParser();
         var doc = parser.parseFromString(body, 'text/html');
 
-        if (doc.querySelectorAll('.event').length < 8) {
+        if (doc.querySelectorAll('.event').length < 16) {
           button.remove();
         }
 

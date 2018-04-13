@@ -33,9 +33,9 @@ class LoadMoreEventsView(TemplateView):
         except (KeyError, ValueError):
             raise Http404
 
-        # The page size (8) is hardcoded in airmozilla.js
+        # The page size (16) is hardcoded in airmozilla.js
         context['events'] = Event.objects.filter(
             ends_at__lt=timezone.now()
-        ).order_by('-ends_at')[offset:offset + 8]
+        ).order_by('-ends_at')[offset:offset + 16]
 
         return context
