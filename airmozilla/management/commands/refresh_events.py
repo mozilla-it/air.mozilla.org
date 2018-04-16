@@ -4,6 +4,8 @@ import urllib.parse
 from django.core.management.base import BaseCommand
 from django.db import transaction, connection
 from django.conf import settings
+from django.db.models.expressions import Value
+from django.contrib.postgres.search import SearchVector
 
 import requests
 from lxml import objectify
@@ -175,12 +177,15 @@ class Command(BaseCommand):
 
             assert time_range, "Event didn't have a start/end time when we expected it to."
 
+            title = urllib.parse.unquote(str(event_node.Description))
+            description = urllib.parse.unquote(str(event_node.Abstract))
             Event.objects.create(
                 event_key=event_node.EventKey,
-                title=urllib.parse.unquote(str(event_node.Description)),
-                description=urllib.parse.unquote(str(event_node.Abstract)),
+                title=title,
+                description=description,
                 created_at=parse_api_datetime(event_node.CreatedOnDate),
                 image=event_node.IconImage,
                 starts_at=time_range.starts_at,
                 ends_at=time_range.ends_at,
+                fulltext=SearchVector(Value(title + ' ' + description), config='english_unaccent'),
             )

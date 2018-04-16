@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.utils.http import urlencode
 from django.utils import timezone
+from django.contrib.postgres.search import SearchVectorField
+from django.contrib.postgres.indexes import GinIndex
 
 
 class Event(models.Model):
@@ -13,6 +15,12 @@ class Event(models.Model):
     created_at = models.DateTimeField()
     starts_at = models.DateTimeField()
     ends_at = models.DateTimeField()
+    fulltext = SearchVectorField()  # must be populated manually, see refresh_events.
+
+    class Meta:
+        indexes = [
+            GinIndex(['fulltext']),
+        ]
 
     def __str__(self):
         return self.title
