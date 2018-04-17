@@ -1,6 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from django.utils import timezone
-from django.http import Http404
+from django.http import Http404, JsonResponse
 
 from .models import Event
 
@@ -39,3 +39,19 @@ class LoadMoreEventsView(TemplateView):
         ).order_by('-ends_at')[offset:offset + 16]
 
         return context
+
+
+class SearchView(View):
+    def get(self, request):
+        try:
+            search = request.GET['q']
+        except KeyError:
+            raise Http404
+
+        events = Event.objects.search(search).defer(
+            'fulltext', 'description'
+        ).order_by('-rank')[:50]
+
+        return JsonResponse({
+            'results': [event.to_json() for event in events],
+        })

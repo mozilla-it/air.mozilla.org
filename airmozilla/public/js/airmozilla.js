@@ -1,4 +1,10 @@
 (function() {
+  function escapeHTML(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+  }
+
   var button = document.getElementById('load-more-events');
   var container = document.getElementById('recent-container');
 
@@ -7,7 +13,7 @@
 
     button.classList.add('loading');
 
-    fetch('/load-more/?offset=' + offset)
+    fetch(DJANGO_URLS['load-more'] + '?offset=' + offset)
       .then(function(response) {
         return response.text();
       }).then(function(body) {
@@ -26,5 +32,31 @@
       });
 
     event.preventDefault();
+  });
+
+  autocomplete('#search-input', {openOnFocus: true, autoselect: true, debug: true, minLength: 3}, [
+    {
+      source: function(query, cb) {
+        fetch(DJANGO_URLS.search + '?q=' + encodeURIComponent(query))
+          .then(function(response) {
+            return response.json();
+          }).then(function (json) {
+            cb(json.results);
+          });
+      },
+      templates: {
+        suggestion: function(suggestion) {
+          return (
+            '<p><a target="_blank" href="' +
+            escapeHTML(suggestion.link) +
+            '">' +
+            escapeHTML(suggestion.title) +
+            '</a></p>'
+          );
+        }
+      }
+    }
+  ]).on('autocomplete:selected', function(event, suggestion, dataset) {
+    window.open(suggestion.link);
   });
 })()

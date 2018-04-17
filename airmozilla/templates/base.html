@@ -19,6 +19,12 @@
     {% compress css %}
       <link href="{% static 'css/airmozilla.scss' %}" rel="stylesheet" type="text/x-scss">
     {% endcompress %}
+    <script>
+      DJANGO_URLS = {
+        'load-more': '{% url "load-more" %}',
+        'search': '{% url "search" %}',
+      };
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -28,20 +34,19 @@
     <header>
       <img id="logo" src="{% static 'image/logo.svg' %}" alt="AirMozilla" />
       <nav>
-        <form>
-          <a class="search" href="#">
-            <svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <defs>
-                    <path d="M21.7,20.3 L17.2,15.8 C18.3,14.4 19,12.5 19,10.5 C19,5.8 15.2,2 10.5,2 C5.8,2 2,5.8 2,10.5 C2,15.2 5.8,19 10.5,19 C12.5,19 14.3,18.3 15.8,17.2 L20.3,21.7 C20.5,21.9 20.8,22 21,22 C21.2,22 21.5,21.9 21.7,21.7 C22.1,21.3 22.1,20.7 21.7,20.3 Z M4,10.5 C4,6.9 6.9,4 10.5,4 C14.1,4 17,6.9 17,10.5 C17,12.3 16.3,13.9 15.1,15.1 C15.1,15.1 15.1,15.1 15.1,15.1 C15.1,15.1 15.1,15.1 15.1,15.1 C13.9,16.3 12.3,17 10.5,17 C6.9,17 4,14.1 4,10.5 Z" id="path-search"></path>
-                </defs>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-2, -1)">
-                        <use id="icon-search-fill" fill="#959595" fill-rule="nonzero" xlink:href="#path-search"></use>
-                    </g>
-                </g>
-            </svg>
-          </a>
-        </form>
+        <a class="search" href="#">
+          <svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+                  <path d="M21.7,20.3 L17.2,15.8 C18.3,14.4 19,12.5 19,10.5 C19,5.8 15.2,2 10.5,2 C5.8,2 2,5.8 2,10.5 C2,15.2 5.8,19 10.5,19 C12.5,19 14.3,18.3 15.8,17.2 L20.3,21.7 C20.5,21.9 20.8,22 21,22 C21.2,22 21.5,21.9 21.7,21.7 C22.1,21.3 22.1,20.7 21.7,20.3 Z M4,10.5 C4,6.9 6.9,4 10.5,4 C14.1,4 17,6.9 17,10.5 C17,12.3 16.3,13.9 15.1,15.1 C15.1,15.1 15.1,15.1 15.1,15.1 C15.1,15.1 15.1,15.1 15.1,15.1 C13.9,16.3 12.3,17 10.5,17 C6.9,17 4,14.1 4,10.5 Z" id="path-search"></path>
+              </defs>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2, -1)">
+                      <use id="icon-search-fill" fill="#959595" fill-rule="nonzero" xlink:href="#path-search"></use>
+                  </g>
+              </g>
+          </svg>
+        </a>
+        <input type="search" id="search-input">
         <a class="login" href="https://onlinexperiences.com/scripts/Server.nxp?LASCmd=L:0&AI=1&InitialDisplay=1&ClientBrowser=0&ShowKey=44908">
           Log In
           <svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -102,6 +107,7 @@
       <script src="{% static 'js/simplebar.js' %}"></script>
       <script src="{% static 'js/promise-polyfill.js' %}"></script>
       <script src="{% static 'js/fetch.js' %}"></script>
+      <script src="{% static 'js/autocomplete.min.js' %}"></script>
       <script src="{% static 'js/airmozilla.js' %}"></script>
     {% endcompress %}
   </body>
