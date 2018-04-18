@@ -86,16 +86,11 @@ header {
       font-weight: 600;
       z-index: 1;
 
-      ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: transparent;
-      }
-      ::-moz-placeholder { /* Firefox 19+ */
-        color: transparent;
-      }
-      :-ms-input-placeholder { /* IE 10+ */
-        color: transparent;
-      }
-      :-moz-placeholder { /* Firefox 18- */
+      ::-webkit-input-placeholder,/* Chrome/Opera/Safari */
+      ::-moz-placeholder, /* Firefox 19+ */
+      :-ms-input-placeholder, /* IE 10+ */
+      :-moz-placeholder, /* Firefox 18- */
+      ::placeholder {
         color: transparent;
       }
 
@@ -110,16 +105,11 @@ header {
         color: black;
         z-index: 100;
 
-        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-          color: black;
-        }
-        ::-moz-placeholder { /* Firefox 19+ */
-          color: black;
-        }
-        :-ms-input-placeholder { /* IE 10+ */
-          color: black;
-        }
-        :-moz-placeholder { /* Firefox 18- */
+        ::-webkit-input-placeholder,/* Chrome/Opera/Safari */
+        ::-moz-placeholder, /* Firefox 19+ */
+        :-ms-input-placeholder, /* IE 10+ */
+        :-moz-placeholder, /* Firefox 18- */
+        ::placeholder {
           color: black;
         }
       }
