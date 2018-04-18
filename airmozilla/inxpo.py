@@ -8,26 +8,29 @@ import pytz
 from django.conf import settings
 
 
-EVENT_API_BASE = (
-    'https://api.onlinexperiences.com/scripts/Server.nxp?'
-    # this parameter must come first
-    'LASCmd=AI:4;F:APIUTILS!50540&'
-    'APIUserAuthCode={AUTH_CODE}&'
-    'APIUserCredentials={USER_CREDENTIALS}&'
-    'ShowKey={SHOW_KEY}&'
-    'OutputFormat=X'
-).format(**settings.INXPO_PARAMETERS)
+def setup_constants():
+    global EVENT_API_BASE, SHOW_SETUP_API_BASE
+    EVENT_API_BASE = (
+        'https://api.onlinexperiences.com/scripts/Server.nxp?'
+        # this parameter must come first
+        'LASCmd=AI:4;F:APIUTILS!50540&'
+        'APIUserAuthCode={AUTH_CODE}&'
+        'APIUserCredentials={USER_CREDENTIALS}&'
+        'ShowKey={SHOW_KEY}&'
+        'OutputFormat=X'
+    ).format(**settings.INXPO_PARAMETERS)
 
+    SHOW_SETUP_API_BASE = (
+        'https://api.onlinexperiences.com/scripts/Server.nxp?'
+        # this parameter must come first
+        'LASCmd=AI:4;F:APIUTILS!50565&'
+        'APIUserAuthCode={AUTH_CODE}&'
+        'APIUserCredentials={USER_CREDENTIALS}&'
+        'ShowKey={SHOW_KEY}&'
+        'OutputFormat=X'
+    ).format(**settings.INXPO_PARAMETERS)
 
-SHOW_SETUP_API_BASE = (
-    'https://api.onlinexperiences.com/scripts/Server.nxp?'
-    # this parameter must come first
-    'LASCmd=AI:4;F:APIUTILS!50565&'
-    'APIUserAuthCode={AUTH_CODE}&'
-    'APIUserCredentials={USER_CREDENTIALS}&'
-    'ShowKey={SHOW_KEY}&'
-    'OutputFormat=X'
-).format(**settings.INXPO_PARAMETERS)
+setup_constants()
 
 
 class INXPOAPIException(Exception):

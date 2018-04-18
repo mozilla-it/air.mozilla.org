@@ -1,9 +1,14 @@
 import random
 import string
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
+from django.conf import settings
 
 from .models import Event
+from .inxpo import (
+    retrieve_events, retrieve_privacy_strategy, retrieve_event_time_range,
+    INXPOAPIException, EventNotFoundException, setup_constants
+)
 
 unicode_alphabet = [
     chr(code_point) for code_point in range(0, 0x10ffff + 1)
@@ -42,3 +47,41 @@ class TestSearch(TestCase):
             except:
                 print(repr(s))
                 raise
+
+
+def override_inxpo(params):
+    def inner(fn):
+        @override_settings(INXPO_PARAMETERS=params)
+        def test_fn(*args, **kwargs):
+            setup_constants()
+            return fn(*args, **kwargs)
+        return test_fn
+    return inner
+
+
+class TestINXPO(TestCase):
+    def test_event_doesnt_exist(self):
+        with self.assertRaises(EventNotFoundException):
+            retrieve_event_time_range(102938109283)
+
+    @override_inxpo({**settings.INXPO_PARAMETERS, 'SHOW_KEY': 123})
+    def test_invalid_show_key(self):
+        with self.assertRaises(INXPOAPIException):
+            retrieve_events()
+
+        with self.assertRaises(INXPOAPIException):
+            retrieve_privacy_strategy()
+
+        with self.assertRaises(INXPOAPIException):
+            retrieve_event_time_range(246640)
+
+    @override_inxpo({**settings.INXPO_PARAMETERS, 'AUTH_CODE': 'foo'})
+    def test_invalid_auth(self):
+        with self.assertRaises(INXPOAPIException):
+            retrieve_events()
+
+        with self.assertRaises(INXPOAPIException):
+            retrieve_privacy_strategy()
+
+        with self.assertRaises(INXPOAPIException):
+            retrieve_event_time_range(246640)
