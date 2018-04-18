@@ -34,7 +34,7 @@
     event.preventDefault();
   });
 
-  autocomplete('#search-input', {openOnFocus: true, autoselect: true, debug: true, minLength: 3}, [
+  autocomplete('#search-input', {openOnFocus: true, autoselect: true, minLength: 3}, [
     {
       source: function(query, cb) {
         fetch(DJANGO_URLS.search + '?q=' + encodeURIComponent(query))
