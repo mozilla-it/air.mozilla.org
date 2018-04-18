@@ -55,7 +55,7 @@
           );
         },
         empty: function(context) {
-          return '<p class="empty">No results for"' + escapeHTML(context.query) + '".</p>';
+          return '<p class="empty">No results for "' + escapeHTML(context.query) + '".</p>';
         }
       }
     }
