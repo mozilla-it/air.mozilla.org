@@ -44,7 +44,7 @@ class Event(models.Model):
     created_at = models.DateTimeField()
     starts_at = models.DateTimeField()
     ends_at = models.DateTimeField()
-    fulltext = SearchVectorField()  # must be populated manually, see refresh_events.
+    fulltext = SearchVectorField()  # trigger, update_event_fulltext
 
     objects = EventQuerySet.as_manager()
 
