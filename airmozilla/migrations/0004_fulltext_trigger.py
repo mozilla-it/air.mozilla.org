@@ -36,7 +36,6 @@ class Migration(migrations.Migration):
                 update_event_fulltext();
             """,
             """
-            DROP TRIGGER update_event_fulltext ON airmozilla_event;
             DROP FUNCTION update_event_fulltext();
             DROP TEXT SEARCH CONFIGURATION simple_unaccent;
             """
