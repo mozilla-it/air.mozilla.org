@@ -9,7 +9,7 @@
   <div class="feature">
     <article>
       {% with event=upcoming_events|first %}
-      <a class="image" href="{{ event.link }}">
+      <a target="_blank" class="image" href="{{ event.link }}">
         <div class="image-inner" style="background-image: url({{ event.image_url }})">
           {% if event.is_streaming_now %}
             <span class="flag">
@@ -38,7 +38,7 @@
 
     {% for event in upcoming_events|slice:"1:" %}
     <article>
-      <a class="image" href="{{ event.link }}">
+      <a target="_blank" class="image" href="{{ event.link }}">
         <div class="image-inner" style="background-image: url({{ event.image_url }})">
           <span class="play">
             <img src="{% static 'image/play.svg' %}" alt="Play" />
