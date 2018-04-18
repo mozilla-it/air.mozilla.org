@@ -14,21 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.conf import settings
-import django.views.generic
 
 from . import views
 
 
-class SettingsTemplateView(django.views.generic.TemplateView):
-    def get_context_data(self, **kwargs):
-        context = super(SettingsTemplateView, self).get_context_data(**kwargs)
-        context['settings'] = settings
-        return context
-
-
 urlpatterns = [
-    url('^robots.txt$', SettingsTemplateView.as_view(
+    url('^robots.txt$', views.SettingsTemplateView.as_view(
         template_name='robots.txt', content_type='text/plain'
     )),
     url('^$', views.IndexView.as_view()),
