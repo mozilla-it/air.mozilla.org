@@ -95,17 +95,29 @@ header {
     span.aa-dropdown-menu {
       background: $white-three;
       border-top: 1px solid $black-two;
-      padding: 0 20px;
+      padding: 0;
       max-height: 100vh;
       overflow: auto;
+      width: 100%;
 
       @include bp(mobile) {
         left: 7.5rem !important;
         right: -7.5rem !important;
       }
 
+      p.empty {
+        display: block;
+        padding: 15px 20px;
+      }
+
       div.aa-suggestion {
         border-bottom: 1px solid rgba(black,0.1);
+        cursor: pointer;
+        padding: 0 20px;
+
+        &.aa-cursor {
+          background: rgba($dark-sky-blue,0.2);
+        }
       }
 
       a {
@@ -114,6 +126,7 @@ header {
         padding: 15px 0;
       }
     }
+
 
     a.login {
       color: $white;
@@ -140,6 +153,7 @@ header {
     }
   }
 }
+
 
 /* Body
 -------------------------------------------------------*/
