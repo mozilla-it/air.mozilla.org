@@ -81,6 +81,19 @@ header {
       font-weight: 600;
       z-index: 1;
 
+      ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: transparent;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        color: transparent;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        color: transparent;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: transparent;
+      }
+
       @include bp(mobile) {
         position: relative;
         right: -7.5rem;
@@ -91,6 +104,19 @@ header {
         background: rgba(white,1) !important;
         color: black;
         z-index: 100;
+
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          color: black;
+        }
+        ::-moz-placeholder { /* Firefox 19+ */
+          color: black;
+        }
+        :-ms-input-placeholder { /* IE 10+ */
+          color: black;
+        }
+        :-moz-placeholder { /* Firefox 18- */
+          color: black;
+        }
       }
     }
 
