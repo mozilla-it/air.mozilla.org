@@ -19,11 +19,12 @@ lxml==4.2.1
 psycopg2==2.7.4
 pyscss==1.3.5             # via django-pyscss
 python-dateutil==2.7.2
+python-memcached==1.59
 pytz==2018.3              # via django
 raven==6.6.0
 rcssmin==1.0.6            # via django-compressor
 requests==2.18.4
 rjsmin==1.0.12            # via django-compressor
-six==1.11.0               # via django-extensions, pyscss, python-dateutil
+six==1.11.0               # via django-extensions, pyscss, python-dateutil, python-memcached
 urllib3==1.22             # via requests
 werkzeug==0.14.1

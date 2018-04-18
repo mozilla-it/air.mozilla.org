@@ -11,3 +11,4 @@ django-pyscss
 requests
 lxml
 python-dateutil
+python-memcached
