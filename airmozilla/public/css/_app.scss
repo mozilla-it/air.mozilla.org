@@ -27,10 +27,15 @@ h2 {
 header {
   background: $black-two;
   height: 50px;
-  padding: 0 29px;
+  padding: 0 29px 0 0;
 
   #logo {
-    margin: 14px 0 0 0;
+    background: $black-two;
+    padding: 14px 0 0 29px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    z-index: 50;
   }
 
   nav {
