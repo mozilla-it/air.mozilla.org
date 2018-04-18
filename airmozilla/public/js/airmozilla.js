@@ -53,6 +53,10 @@
             escapeHTML(suggestion.title) +
             '</a></p>'
           );
+        },
+        empty: function(context) {
+          console.log(context);
+          return '<p class="empty">No results for"' + escapeHTML(context.query) + '".</p>';
         }
       }
     }
