@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             """
             -- 'simple' does not do stemming
             CREATE TEXT SEARCH CONFIGURATION simple_unaccent (COPY = simple);
-            ALTER TEXT SEARCH CONFIGURATION english_unaccent
+            ALTER TEXT SEARCH CONFIGURATION simple_unaccent
                 ALTER MAPPING FOR hword, hword_part, word
                 WITH unaccent;
 

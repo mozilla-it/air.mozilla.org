@@ -1,11 +1,19 @@
 from django.views.generic import TemplateView, View
 from django.utils import timezone
 from django.http import Http404, JsonResponse
+from django.conf import settings
 
 from .models import Event
 
 
-class IndexView(TemplateView):
+class SettingsTemplateView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super(SettingsTemplateView, self).get_context_data(**kwargs)
+        context['settings'] = settings
+        return context
+
+
+class IndexView(SettingsTemplateView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -33,10 +41,9 @@ class LoadMoreEventsView(TemplateView):
         except (KeyError, ValueError):
             raise Http404
 
-        # The page size (16) is hardcoded in airmozilla.js
         context['events'] = Event.objects.filter(
             ends_at__lt=timezone.now()
-        ).order_by('-ends_at')[offset:offset + 16]
+        ).order_by('-ends_at')[offset:offset + settings.PAGE_SIZE]
 
         return context
 

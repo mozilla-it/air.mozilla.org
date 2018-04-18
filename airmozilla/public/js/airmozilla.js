@@ -13,14 +13,14 @@
 
     button.classList.add('loading');
 
-    fetch(DJANGO_URLS['load-more'] + '?offset=' + offset)
+    fetch(DJANGO_META.URLS['load-more'] + '?offset=' + offset)
       .then(function(response) {
         return response.text();
       }).then(function(body) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(body, 'text/html');
 
-        if (doc.querySelectorAll('.event').length < 16) {
+        if (doc.querySelectorAll('.event').length < DJANGO_META.PAGE_SIZE) {
           button.remove();
         }
 
@@ -34,10 +34,10 @@
     event.preventDefault();
   });
 
-  autocomplete('#search-input', {openOnFocus: true, autoselect: true, debug: true, minLength: 3}, [
+  autocomplete('#search-input', {openOnFocus: true, autoselect: true, minLength: 3}, [
     {
       source: function(query, cb) {
-        fetch(DJANGO_URLS.search + '?q=' + encodeURIComponent(query))
+        fetch(DJANGO_META.URLS.search + '?q=' + encodeURIComponent(query))
           .then(function(response) {
             return response.json();
           }).then(function (json) {
@@ -55,7 +55,6 @@
           );
         },
         empty: function(context) {
-          console.log(context);
           return '<p class="empty">No results for"' + escapeHTML(context.query) + '".</p>';
         }
       }

@@ -14,7 +14,9 @@ CACHES = {
 
 ALLOWED_HOSTS = ['air.mozilla.org']
 
-BACKUPDB_DIRECTORY = os.environ['BACKUP_DIR']
+# Mozilla is deploying this, and db backups aren't necesary since it's
+# generated on a schedule.
+# BACKUPDB_DIRECTORY = os.environ['BACKUP_DIR']
 STATIC_ROOT = os.environ['STATIC_ROOT']
 SECRET_KEY = os.environ['SECRET_KEY']
 COMPRESS_ENABLED = True

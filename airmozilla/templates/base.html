@@ -20,9 +20,12 @@
       <link href="{% static 'css/airmozilla.scss' %}" rel="stylesheet" type="text/x-scss">
     {% endcompress %}
     <script>
-      DJANGO_URLS = {
-        'load-more': '{% url "load-more" %}',
-        'search': '{% url "search" %}',
+      DJANGO_META = {
+        URLS: {
+          'load-more': '{% url "load-more" %}',
+          'search': '{% url "search" %}',
+        },
+        PAGE_SIZE: {{ settings.PAGE_SIZE }}
       };
     </script>
   </head>
