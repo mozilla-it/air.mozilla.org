@@ -225,6 +225,16 @@ section.upcoming {
     h3 {
       font-size: 24px;
       font-weight: normal;
+      line-height: 1.3;
+
+      a {
+        text-decoration: none;
+        color: $black;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     p.desc {
@@ -260,6 +270,19 @@ section.upcoming {
 
       &:last-of-type {
         margin-bottom: 0;
+      }
+
+      h3 {
+        line-height: 1.3;
+
+        a {
+          text-decoration: none;
+          color: $black;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
 
@@ -313,6 +336,16 @@ section.recent {
     h3 {
       font-size: 24px;
       font-weight: normal;
+      line-height: 1.3;
+
+      a {
+        text-decoration: none;
+        color: $black;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     p.desc {

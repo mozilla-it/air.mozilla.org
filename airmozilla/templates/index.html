@@ -23,7 +23,7 @@
         </div>
       </a>
       <div class="meta">
-        <h3>{{ event.title }}</h3>
+        <h3><a href="{{ event.link }}">{{ event.title }}</a></h3>
         <p class="date">
           <time datetime="{{ event.starts_at.isoformat }}">
             {{ event.starts_at|naturaltime }}
@@ -46,7 +46,7 @@
         </div>
       </a>
       <div class="meta">
-        <h3>{{ event.title }}</h3>
+        <h3><a href="{{ event.link }}">{{ event.title }}</a></h3>
         <p class="desc">{{ event.description|linebreaksbr }}</p>
         <p class="date">
           <time datetime="{{ event.starts_at.isoformat }}">
