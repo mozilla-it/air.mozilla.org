@@ -43,7 +43,7 @@ class Event(models.Model):
     image = models.CharField(max_length=255)
     created_at = models.DateTimeField()
     starts_at = models.DateTimeField()
-    ends_at = models.DateTimeField()
+    ends_at = models.DateTimeField(db_index=True)
     fulltext = SearchVectorField()  # trigger, update_event_fulltext
 
     objects = EventQuerySet.as_manager()
