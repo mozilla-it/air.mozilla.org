@@ -1,3 +1,16 @@
+"""
+Routines for connecting to INXPO. Docs:
+
+EVENT_API_BASE:
+https://docs.google.com/document/d/1wgd3_oy0g1LjE9wduJdeXDnAyhLQze9vTpC8w-FNwNw/edit?usp=sharing
+
+USER_API_BASE, retrieve ShowKey:
+https://docs.google.com/document/d/1boLmZj9DRljI4t0ZFiAThCSVSUW5vAdmsMpnyc3jAHA/edit?usp=sharing
+
+SHOW_SETUP_API_BASE, retrieve ShowPackageKey:
+https://docs.google.com/document/d/1qfcuAEe3TJbJppv-tFCrRq3ePH5eY30A-rJANpdLvcE/edit?usp=sharing
+"""
+
 import collections
 
 import requests
