@@ -20,8 +20,10 @@ class Command(BaseCommand):
             # time, which could end up with duplicate copies of events. (DELETE
             # + INSERT is not a concurrency-safe way to replace the contents of
             # a table). This lock mode allows concurrent reads, so the frontend
-            # is fine while we're refreshing.
-            cursor.execute('LOCK TABLE %s IN EXCLUSIVE MODE' % Event._meta.db_table)
+            # is fine while we're refreshing. NOWAIT prevents tasks from piling
+            # up if they ever start being scheduled faster than they can
+            # complete.
+            cursor.execute('LOCK TABLE %s IN EXCLUSIVE MODE NOWAIT' % Event._meta.db_table)
 
         Event.objects.all().delete()
 
