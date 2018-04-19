@@ -90,7 +90,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -126,3 +126,5 @@ INXPO_PARAMETERS = {
     'SHOW_KEY': 44908,
 }
 PAGE_SIZE = 16
+
+DATETIME_FORMAT = 'N j, Y, P T'

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles humanize %}
+{% load staticfiles airmozilla_tags %}
 
 {% block content %}
 <section class="upcoming">
@@ -25,9 +25,7 @@
       <div class="meta">
         <h3><a target="_blank" href="{{ event.link }}">{{ event.title }}</a></h3>
         <p class="date">
-          <time datetime="{{ event.starts_at.isoformat }}">
-            {{ event.starts_at|naturaltime }}
-          </time>
+          {{ event.starts_at|relativedate }}
         </p>
       </div>
       {% endwith %}
@@ -49,9 +47,7 @@
         <h3><a target="_blank" href="{{ event.link }}">{{ event.title }}</a></h3>
         <p class="desc">{{ event.description|linebreaksbr }}</p>
         <p class="date">
-          <time datetime="{{ event.starts_at.isoformat }}">
-            {{ event.starts_at|naturaltime }}
-          </time>
+          {{ event.starts_at|relativedate }}
         </p>
       </div>
     </article>

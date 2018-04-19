@@ -1,4 +1,4 @@
-{% load humanize %}
+{% load airmozilla_tags %}
 
 {% for event in events %}
 <article class="event">
@@ -10,9 +10,7 @@
     <h3><a target="_blank" href="{{ event.link }}">{{ event.title }}</a></h3>
     <p class="desc">{{ event.description|linebreaksbr }}</p>
     <p class="date">
-      <time datetime="{{ event.starts_at.isoformat }}">
-        {{ event.ends_at|naturaltime }}
-      </time>
+      {{ event.ends_at|relativedate }}
     </p>
   </div>
 </article>
