@@ -7,8 +7,10 @@ from django.conf import settings
 from .models import Event
 from .inxpo import (
     retrieve_events, retrieve_privacy_strategy, retrieve_event_time_range,
-    INXPOAPIException, EventNotFoundException, setup_constants
+    INXPOAPIException, EventNotFoundException, setup_constants,
+    get_anonymous_login_url_for_event
 )
+
 
 unicode_alphabet = [
     chr(code_point) for code_point in range(0, 0x10ffff + 1)
@@ -60,28 +62,47 @@ def override_inxpo(params):
 
 
 class TestINXPO(TestCase):
-    def test_event_doesnt_exist(self):
+    def setUp(self):
+        setup_constants()
+
+    def test_time_range_event_doesnt_exist(self):
         with self.assertRaises(EventNotFoundException):
             retrieve_event_time_range(102938109283)
 
     @override_inxpo({**settings.INXPO_PARAMETERS, 'SHOW_KEY': 123})
     def test_invalid_show_key(self):
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid Show Key Specified!'):
             retrieve_events()
 
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid Show Key Specified!'):
             retrieve_privacy_strategy()
 
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid Show Key Specified!'):
             retrieve_event_time_range(246640)
 
     @override_inxpo({**settings.INXPO_PARAMETERS, 'AUTH_CODE': 'foo'})
     def test_invalid_auth(self):
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid API Credentials Supplied!'):
             retrieve_events()
 
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid API Credentials Supplied!'):
             retrieve_privacy_strategy()
 
-        with self.assertRaises(INXPOAPIException):
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid API Credentials Supplied!'):
             retrieve_event_time_range(246640)
+
+        with self.assertRaisesMessage(INXPOAPIException, 'Invalid API Credentials Supplied!'):
+            get_anonymous_login_url_for_event(246640)
+
+    def test_login_url_event_doesnt_exist(self):
+        with self.assertRaises(EventNotFoundException):
+            get_anonymous_login_url_for_event(102938109283)
+
+        with self.assertRaises(EventNotFoundException):
+            get_anonymous_login_url_for_event(0)
+
+    def test_success(self):
+        retrieve_privacy_strategy()
+        events = retrieve_events()
+        retrieve_event_time_range(events[0].EventKey)
+        assert get_anonymous_login_url_for_event(events[0].EventKey).startswith('http')

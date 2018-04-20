@@ -25,4 +25,5 @@ urlpatterns = [
     url('^$', views.IndexView.as_view()),
     url('^load-more/$', views.LoadMoreEventsView.as_view(), name='load-more'),
     url('^search/$', views.SearchView.as_view(), name='search'),
+    url('^event-redirect/(?P<event_key>\d+)/$', views.EventRedirectView.as_view(), name='event-redirect'),
 ]

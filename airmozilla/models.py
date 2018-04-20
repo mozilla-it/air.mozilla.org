@@ -1,12 +1,11 @@
 import re
 
 from django.db import models
-from django.conf import settings
-from django.utils.http import urlencode
 from django.utils import timezone
 from django.contrib.postgres.search import SearchVectorField
 from django.contrib.postgres.indexes import GinIndex
 from django.db.models.expressions import RawSQL
+from django import urls
 
 
 def process_query(s):
@@ -58,10 +57,7 @@ class Event(models.Model):
 
     @property
     def link(self):
-        return 'https://onlinexperiences.com/Launch/Event.htm?' + urlencode({
-            'ShowKey': settings.INXPO_PARAMETERS['SHOW_KEY'],
-            'DisplayItem': 'E' + str(self.event_key),
-        })
+        return urls.reverse('event-redirect', kwargs={'event_key': self.event_key})
 
     @property
     def image_url(self):

@@ -1,9 +1,10 @@
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView, View, RedirectView
 from django.utils import timezone
 from django.http import Http404, JsonResponse
 from django.conf import settings
 
 from .models import Event
+from .inxpo import get_anonymous_login_url_for_event, EventNotFoundException
 
 
 class SettingsTemplateView(TemplateView):
@@ -62,3 +63,14 @@ class SearchView(View):
         return JsonResponse({
             'results': [event.to_json() for event in events],
         })
+
+
+class EventRedirectView(RedirectView):
+    # The login ticket expires so this can't be permanent.
+    permanent = False
+
+    def get_redirect_url(self, event_key):
+        try:
+            return get_anonymous_login_url_for_event(event_key)
+        except EventNotFoundException:
+            raise Http404
