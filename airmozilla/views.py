@@ -23,7 +23,7 @@ class IndexView(SettingsTemplateView):
         # queries.
         context['upcoming_events'] = list(Event.objects.filter(
             ends_at__gte=timezone.now()
-        ).order_by('starts_at'))
+        ).order_by('starts_at'))[:11]
         context['past_events'] = Event.objects.filter(
             ends_at__lt=timezone.now()
         ).order_by('-ends_at')[:6]
