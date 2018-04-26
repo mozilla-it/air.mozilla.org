@@ -28,3 +28,12 @@ running the application has permission to write to `$STATIC_ROOT/CACHE/`.
 frequency is not important. I've been doing every hour. The task is built to be
 robust no matter when it's scheduled, even if they end up overlapping. On
 average the task takes only about 15 seconds though.
+
+To enable HSTS, set `SECURE_HSTS_SECONDS` in `settings_live.py`. See
+<https://docs.djangoproject.com/en/1.11/ref/middleware/#http-strict-transport-security>
+for more information.
+
+To enable redirects to HTTPS, set `SECURE_SSL_REDIRECT = True` in
+`settings_live.py`. See
+<https://docs.djangoproject.com/en/2.0/ref/middleware/#ssl-redirect> for more
+information.
