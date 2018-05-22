@@ -11,7 +11,7 @@
   },
   {
     "type": "file",
-    "source": "/airmozilla",
+    "source": "./",
     "destination": "/var/www/{{user `project_name`}}",
     "order": "2"
   }
