@@ -1,0 +1,7 @@
+account = "nubis-training"
+region = "us-west-2"
+arena = "core"
+environment = "stage"
+service_name = "joey-airmofront"
+ami = "ami-1ced9364"
+ssh_key_file = "/nubis/data/nubis/id-rsa.pub"
