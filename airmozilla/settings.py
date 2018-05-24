@@ -120,11 +120,10 @@ COMPRESS_PRECOMPILERS = (
 
 
 INXPO_PARAMETERS = {
-    'AUTH_CODE': '***REMOVED***',
-    'USER_CREDENTIALS': '***REMOVED***',
-    # retrieved from https://api.onlinexperiences.com/scripts/Server.nxp?LASCmd=AI:4;F:APIUTILS!50500&APIUserAuthCode=***REMOVED***&APIUserCredentials=***REMOVED***&OpCodeList=F&OutputFormat=X
-    'SHOW_KEY': 44908,
-    'SHOW_PACKAGE_KEY': 99827,
+    'AUTH_CODE': 'abc',
+    'USER_CREDENTIALS': '123',
+    'SHOW_KEY': 0,
+    'SHOW_PACKAGE_KEY': 0,
 }
 PAGE_SIZE = 16
 
