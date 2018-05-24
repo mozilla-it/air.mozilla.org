@@ -1,0 +1,8 @@
+forge "https://forgeapi.puppetlabs.com"
+
+####################### NOTE #############################
+## All modules *must* be pinned to a specific version/tag #
+###########################################################
+
+
+mod 'puppet-alternatives', '2.0.0'
