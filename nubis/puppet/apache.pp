@@ -15,13 +15,13 @@ apache::vhost { $project_name:
     threads      => '15',
     display-name => '%{GROUP}',
   },
-  wsgi_import_script          => '/var/www/demo.wsgi',
+  wsgi_import_script          => 'airmozilla/wsgi.py',
   wsgi_import_script_options  => {
     process-group     => 'wsgi',
     application-group => '%{GLOBAL}',
   },
   wsgi_process_group          => 'wsgi',
-  wsgi_script_aliases         => { '/' => '/var/www/demo.wsgi' },
+  wsgi_script_aliases         => { '/' => 'airmozilla/wsgi.py' },
 
 
 #    custom_fragment    => "

@@ -32,6 +32,7 @@ module "database" {
   account                = "${var.account}"
   service_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
+  engine		 = "postgres"
 }
 
 module "dns" {
