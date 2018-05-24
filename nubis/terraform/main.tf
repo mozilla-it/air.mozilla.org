@@ -5,7 +5,7 @@ module "worker" {
   account           = "${var.account}"
   service_name      = "${var.service_name}"
   purpose           = "webserver"
-  instance_type     = "m5.large"
+  instance_type     = "t2.small"
   ami               = "${var.ami}"
   elb               = "${module.load_balancer.name}"
   nubis_sudo_groups = "team_webops,nubis_global_admins"
