@@ -26,13 +26,16 @@ module "load_balancer" {
 }
 
 module "database" {
-  source                 = "github.com/nubisproject/nubis-terraform//database?ref=v2.2.0"
+  source                 = "github.com/nubisproject/nubis-terraform//database?ref=develop"
   region                 = "${var.region}"
   environment            = "${var.environment}"
   account                = "${var.account}"
   service_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
   engine		 = "postgres"
+  name			 = "airmotest"
+  username		 = "airmotester"
+
 }
 
 module "dns" {
