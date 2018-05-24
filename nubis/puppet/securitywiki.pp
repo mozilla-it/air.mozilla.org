@@ -1,13 +1,11 @@
 #Install Python 3.4
 class { 'python' :
-    version    => 'latest',
-    pip        => 'present',
+    version    => '3',
+    pip        => 'true'
 }
 
-python::requirements { '/var/www/project1/requirements.txt' :
-    proxy      => 'http://proxy.domain.com:3128',
-    owner      => 'appuser',
-    group      => 'apps',
+python::requirements { "/var/www/${project_name}/requirements.txt" :
+  require =>  Class['python'],
 }
 
 
