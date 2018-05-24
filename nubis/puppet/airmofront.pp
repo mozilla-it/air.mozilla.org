@@ -1,7 +1,8 @@
 #Install Python 3.4
 class { 'python' :
-    version    => '3',
-    pip        => 'present',
+    version => 'system',
+    pip     => true,
+    dev     => true,
 }
 
 python::requirements { "/var/www/${project_name}/requirements.txt" :
