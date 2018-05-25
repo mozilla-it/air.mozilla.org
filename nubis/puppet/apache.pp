@@ -26,15 +26,15 @@ apache::vhost { $project_name:
   wsgi_script_aliases         => { '/' => "/var/www/${project_name}/airmozilla/wsgi.py" },
 
   custom_fragment             => "
-        # Don't set default expiry on anything
-        ExpiresActive Off
+    # Don't set default expiry on anything
+    ExpiresActive Off
 
-        # Clustered without coordination
-        FileETag None
+    # Clustered without coordination
+    FileETag None
 
-	# Mark internal traffic as not log-worthy
-	SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16' || -R '127.0.0.0/8'\" internal
-    "
+    # Mark internal traffic as not log-worthy
+    SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16' || -R '127.0.0.0/8'\" internal
+  ",
 
   block                       => ['scm'],
   setenvif                    => [
