@@ -19,6 +19,15 @@ file { "/var/www/${project_name}/airmozilla/settings_live.py":
   source => 'puppet:///nubis/files/settings_live.py'
 }
 
+# Collect static content
+exec { "collectstatic":
+  command => "/var/www/${project_name}/manage.py collectstatic --noinput",
+  logoutput => true,
+  require => [
+    Python::Requirements["/var/www/${project_name}/requirements.txt"],
+  ],
+}
+
 file { "/usr/local/bin/${project_name}-update":
   ensure => present,
   source => 'puppet:///nubis/files/update',
