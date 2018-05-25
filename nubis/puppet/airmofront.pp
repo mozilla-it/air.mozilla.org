@@ -19,6 +19,24 @@ file { "/var/www/${project_name}/airmozilla/settings_live.py":
   source => 'puppet:///nubis/files/settings_live.py'
 }
 
+file { "/var/www/${project_name}/airmozilla/static/CACHE":
+  ensure  => 'directory',
+  owner   => $apache::params::user,
+  group   => $apache::params::group,
+  require => [
+    Class['nubis_apache'],
+  ],
+}
+
+file { "/var/www/${project_name}/airmozilla/static/scss":
+  ensure  => 'directory',
+  owner   => $apache::params::user,
+  group   => $apache::params::group,
+  require => [
+    Class['nubis_apache'],
+  ],
+}
+
 file { "/usr/local/bin/${project_name}-update":
   ensure => present,
   source => 'puppet:///nubis/files/update',
