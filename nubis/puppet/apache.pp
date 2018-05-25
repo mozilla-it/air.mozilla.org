@@ -3,7 +3,7 @@ class { 'nubis_apache': }
 
 class { 'apache::mod::wsgi':
   package_name => 'libapache2-mod-wsgi-py3',
-  mod_path     => "$::apache::params::lib_path/mod_wsgi.so",
+  mod_path     => "${::apache::params::lib_path}/mod_wsgi.so",
 }
 
 #WSGI Setup for AirmoFront
@@ -39,6 +39,13 @@ apache::vhost { $project_name:
     # Mark internal traffic as not log-worthy
     SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16' || -R '127.0.0.0/8'\" internal
   ",
+
+  aliases                     => [
+    {
+      alias => '/static',
+        path  => "/var/www/${project_name}/static",
+    }
+  ],
 
   block                       => ['scm'],
   setenvif                    => [
