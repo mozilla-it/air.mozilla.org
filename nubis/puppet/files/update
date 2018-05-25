@@ -13,5 +13,8 @@ CONSUL_PREFIX="$NUBIS_STACK/$NUBIS_ENVIRONMENT"
 consul lock "$CONSUL_PREFIX/migrate" \
     /var/www/airmofront/manage.py migrate
 
+# Collect static content
+/var/www/airmofront/manage.py collectstatic --noinput
+
 # Once done, just reload/restart apache for good measure
 systemctl reload-or-restart apache2
