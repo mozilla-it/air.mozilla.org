@@ -21,7 +21,6 @@ module "load_balancer" {
   environment          = "${var.environment}"
   account              = "${var.account}"
   service_name         = "${var.service_name}"
-  health_check_target  = "HTTP:80/health.php"
 }
 
 module "database" {
@@ -31,9 +30,9 @@ module "database" {
   account                = "${var.account}"
   service_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
-  engine		 = "postgres"
-  name			 = "airmotest"
-  username		 = "airmotester"
+  engine		             = "postgres"
+  name			             = "airmotest"
+  username		           = "airmotester"
 
 }
 

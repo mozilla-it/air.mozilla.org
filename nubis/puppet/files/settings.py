@@ -15,6 +15,10 @@ import os
 import dj_database_url
 
 
+import imp
+nubis = imp.load_source('nubis', '/etc/nubis-config/airmofront.sh')
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fid)vm+*fs!i@!_7uz56fva8#u21fgo0#+t#@)w573sav590nk'
+SECRET_KEY = nubis.APP_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,7 +81,13 @@ WSGI_APPLICATION = 'airmozilla.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': nubis.DB_NAME,
+        'USER': nubis.DB_USERNAME,
+        'PASSWORD': nubis.DB_PASSWORD,
+        'HOST': nubis.DB_SERVER,
+    }
 }
 
 
@@ -120,10 +130,10 @@ COMPRESS_PRECOMPILERS = (
 
 
 INXPO_PARAMETERS = {
-    'AUTH_CODE': 'abc',
-    'USER_CREDENTIALS': '123',
-    'SHOW_KEY': 0,
-    'SHOW_PACKAGE_KEY': 0,
+    'AUTH_CODE': nubis.inxpo_auth_code,
+    'USER_CREDENTIALS': nubis.inxpo_user_credentials,
+    'SHOW_KEY': 44908,
+    'SHOW_PACKAGE_KEY': 99827,
 }
 PAGE_SIZE = 16
 
