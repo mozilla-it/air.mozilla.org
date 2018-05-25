@@ -14,7 +14,7 @@ python::virtualenv { "/opt/${project_name}/venv":
 }
 
 python::requirements { "/var/www/${project_name}/requirements.txt" :
-  virtualenv => "/opt/${project_name}/venv"
+  virtualenv => "/opt/${project_name}/venv",
   require =>  [
     Class['python'],
     Python::Virtualenv["/opt/${project_name}/venv"],
