@@ -39,8 +39,8 @@ file { "/var/www/${project_name}/airmozilla/settings_live.py":
 
 file { "/var/www/${project_name}/static/CACHE":
   ensure  => 'directory',
-  owner   => $::apache::params::user,
-  group   => $::apache::params::group,
+  owner   => "www-data",
+  group   => "www-data",
   require => [
     Class['apache'],
   ],
@@ -48,8 +48,8 @@ file { "/var/www/${project_name}/static/CACHE":
 
 file { "/var/www/${project_name}/static/scss":
   ensure  => 'directory',
-  owner   => $::apache::params::user,
-  group   => $::apache::params::group,
+  owner   => "www-data",
+  group   => "www-data",
   require => [
     Class['apache'],
   ],
