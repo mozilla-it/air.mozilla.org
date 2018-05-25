@@ -10,8 +10,8 @@ python::requirements { "/var/www/${project_name}/requirements.txt" :
 }
 
 file { "/var/www/${project_name}/airmo/settings.py":
-  require => file,
-  source  =>  'puppet:///nubis/files/settings.py'
+  ensure => file,
+  source => 'puppet:///nubis/files/settings.py'
 }
 
 file { "/usr/local/bin/${project_name}-update":
