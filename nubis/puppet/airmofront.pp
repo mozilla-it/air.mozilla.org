@@ -9,7 +9,7 @@ python::requirements { "/var/www/${project_name}/requirements.txt" :
   require =>  Class['python'],
 }
 
-file { "/var/www/${project_name}/airmo/settings.py"
+file { "/var/www/${project_name}/airmo/settings.py":
   require => file,
   source  =>  'puppet:///nubis/files/settings.py'
 }
