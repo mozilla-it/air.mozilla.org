@@ -15,7 +15,7 @@ CACHES = {
     }
 }
 
-ALLOWED_HOSTS = ['air.mozilla.org']
+ALLOWED_HOSTS = ['air.mozilla.org', nubis.SITE_HOSTNAME]
 
 # Mozilla is deploying this, and db backups aren't necesary since it's
 # generated on a schedule.

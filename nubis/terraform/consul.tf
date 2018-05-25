@@ -24,6 +24,12 @@ resource "consul_keys" "config" {
 
   key {
     path   = "${module.consul.config_prefix}/SITE_URL"
+    value  = "https://${module.dns.fqdn}"
+    delete = true
+  }
+
+  key {
+    path   = "${module.consul.config_prefix}/SITE_HOSTNAME"
     value  = "${module.dns.fqdn}"
     delete = true
   }
