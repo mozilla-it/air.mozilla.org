@@ -55,6 +55,15 @@ file { "/var/www/${project_name}/static/scss":
   ],
 }
 
+# Silence warnings about file not found
+file { "/var/www/${project_name}/.env":
+  ensure => present,
+  content => '',
+  owner  => root,
+  group  => root,
+  mode   => '0644',
+}
+
 file { "/usr/local/bin/${project_name}-update":
   ensure => present,
   source => 'puppet:///nubis/files/update',
