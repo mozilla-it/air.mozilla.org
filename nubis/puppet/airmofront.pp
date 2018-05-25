@@ -27,14 +27,9 @@ python::requirements { "/var/www/${project_name}/requirements.txt" :
   ]
 }
 
-file { "/var/www/${project_name}/airmozilla/settings.py":
+file { "/var/www/${project_name}/airmozilla/settings_nubis.py":
   ensure => present,
   source => 'puppet:///nubis/files/settings.py'
-}
-
-file { "/var/www/${project_name}/airmozilla/settings_live.py":
-  ensure => present,
-  source => 'puppet:///nubis/files/settings_live.py'
 }
 
 file { "/var/www/${project_name}/static/CACHE":

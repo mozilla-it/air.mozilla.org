@@ -40,7 +40,7 @@ apache::vhost { $project_name:
     SetEnvIfExpr \"-R '10.0.0.0/8' || -R '172.16.0.0/12' || -R '192.168.0.0/16' || -R '127.0.0.0/8'\" internal
   ",
   setenv => [
-    'DJANGO_SETTINGS_MODULE airmozilla.settings_live',
+    'DJANGO_SETTINGS_MODULE airmozilla.settings_nubis',
   ],
   aliases                     => [
     {
