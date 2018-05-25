@@ -3,6 +3,7 @@ class { 'python' :
     version => 'python3',
     pip     => true,
     dev     => true,
+    virtualenv => true,
 }
 
 file { "/opt/${project_name}":
