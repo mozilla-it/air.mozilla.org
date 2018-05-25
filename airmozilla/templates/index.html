@@ -2,6 +2,7 @@
 {% load staticfiles airmozilla_tags %}
 
 {% block content %}
+{% if upcoming_events %}
 <section class="upcoming">
 
   <h1>Upcoming Section</h1>
@@ -60,6 +61,7 @@
 </section>
 
 <hr />
+{% endif %}
 
 <section class="recent" id="recent-container">
   <h1>Recent Events</h1>
