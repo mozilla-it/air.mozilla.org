@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PYTHON=/opt/airmofront/venv/bin/python
+
 # Load Nubis settings
 NUBIS_STACK=$(nubis-metadata NUBIS_STACK)
 NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
@@ -11,10 +13,10 @@ CONSUL_PREFIX="$NUBIS_STACK/$NUBIS_ENVIRONMENT"
 # We use consul lock to ensure we never run this in parallel across instances
 
 consul lock "$CONSUL_PREFIX/migrate" \
-    /var/www/airmofront/manage.py migrate
+    $PYTHON /var/www/airmofront/manage.py migrate
 
 # Collect static content
-/var/www/airmofront/manage.py collectstatic --noinput
+$PYTHON /var/www/airmofront/manage.py collectstatic --noinput
 
 # Once done, just reload/restart apache for good measure
 systemctl reload-or-restart apache2
