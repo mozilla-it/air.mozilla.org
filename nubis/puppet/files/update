@@ -21,4 +21,8 @@ if [ "$APP_SECRET_KEY" == "Null" ] || [ "$APP_SECRET_KEY" = "" ]; then
     exit 0
 fi
 
+# Perform necessary DB migrations
+# We use consul lock to ensure we never run this in parallel across instances
 
+consul lock "$CONSUL_PREFIX/migrate" \
+    /var/www/dpaste/manage.py migrate

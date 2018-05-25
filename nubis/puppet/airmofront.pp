@@ -14,6 +14,11 @@ file { "/var/www/${project_name}/airmozilla/settings.py":
   source => 'puppet:///nubis/files/settings.py'
 }
 
+file { "/var/www/${project_name}/airmozilla/settings_live.py":
+  ensure => present,
+  source => 'puppet:///nubis/files/settings_live.py'
+}
+
 file { "/usr/local/bin/${project_name}-update":
   ensure => present,
   source => 'puppet:///nubis/files/update',

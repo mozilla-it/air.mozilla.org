@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'airmozilla.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': nubis.DB_NAME,
-        'USER': nubis.DB_USERNAME,
-        'PASSWORD': nubis.DB_PASSWORD,
-        'HOST': nubis.DB_SERVER,
+        'NAME': nubis.Database_Name,
+        'USER': nubis.Database_User,
+        'PASSWORD': nubis.Database_Password,
+        'HOST': nubis.Database_Server,
     }
 }
 
