@@ -5,11 +5,16 @@ class { 'python' :
     dev     => true,
 }
 
+file { "/opt/${project_name}":
+  ensure => directory,
+}
+
 python::virtualenv { "/opt/${project_name}/venv":
   ensure  => present,
   version => '3',
   require => [
     Class['python'],
+    File["/opt/${project_name}"],
   ]
 }
 
