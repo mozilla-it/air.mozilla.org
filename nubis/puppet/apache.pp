@@ -1,7 +1,9 @@
 # Define how Apache should be installed and configured
 class { 'nubis_apache': }
 
-class { 'apache::mod::wsgi': }
+class { 'apache::mod::wsgi':
+  package_name => 'libapache2-mod-wsgi-py3'
+}
 
 #WSGI Setup for AirmoFront
 apache::vhost { $project_name:

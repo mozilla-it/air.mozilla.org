@@ -1,6 +1,6 @@
 #Install Python 3.4
 class { 'python' :
-    version => 'system',
+    version => 'python3',
     pip     => true,
     dev     => true,
 }
