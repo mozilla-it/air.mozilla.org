@@ -29,7 +29,7 @@ resource "consul_keys" "config" {
   }
 
   key {
-    path   = "${module.consul.config_prefix}/SECRET_KEY"
+    path   = "${module.consul.config_prefix}/APP_SECRET_KEY"
     value  = "${random_id.secret_key.b64_url}"
     delete = true
   }
