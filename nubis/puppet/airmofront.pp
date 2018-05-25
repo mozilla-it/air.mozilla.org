@@ -19,7 +19,7 @@ file { "/var/www/${project_name}/airmozilla/settings_live.py":
   source => 'puppet:///nubis/files/settings_live.py'
 }
 
-file { "/var/www/${project_name}/airmozilla/static/CACHE":
+file { "/var/www/${project_name}/static/CACHE":
   ensure  => 'directory',
   owner   => $apache::params::user,
   group   => $apache::params::group,
@@ -28,7 +28,7 @@ file { "/var/www/${project_name}/airmozilla/static/CACHE":
   ],
 }
 
-file { "/var/www/${project_name}/airmozilla/static/scss":
+file { "/var/www/${project_name}/static/scss":
   ensure  => 'directory',
   owner   => $apache::params::user,
   group   => $apache::params::group,
