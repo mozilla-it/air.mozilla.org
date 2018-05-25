@@ -16,11 +16,11 @@ module "worker" {
 }
 
 module "load_balancer" {
-  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.2.0"
-  region               = "${var.region}"
-  environment          = "${var.environment}"
-  account              = "${var.account}"
-  service_name         = "${var.service_name}"
+  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.2.0"
+  region       = "${var.region}"
+  environment  = "${var.environment}"
+  account      = "${var.account}"
+  service_name = "${var.service_name}"
 }
 
 module "database" {
@@ -30,10 +30,9 @@ module "database" {
   account                = "${var.account}"
   service_name           = "${var.service_name}"
   client_security_groups = "${module.worker.security_group}"
-  engine		             = "postgres"
-  name			             = "airmotest"
-  username		           = "airmotester"
-
+  engine                 = "postgres"
+  name                   = "airmotest"
+  username               = "airmotester"
 }
 
 module "dns" {
@@ -43,26 +42,6 @@ module "dns" {
   account      = "${var.account}"
   service_name = "${var.service_name}"
   target       = "${module.load_balancer.address}"
-}
-
-module "storage" {
-  source                 = "github.com/nubisproject/nubis-terraform//storage?ref=v2.2.0"
-  region                 = "${var.region}"
-  environment            = "${var.environment}"
-  account                = "${var.account}"
-  service_name           = "${var.service_name}"
-  storage_name           = "${var.service_name}"
-  client_security_groups = "${module.worker.security_group}"
-}
-
-module "backup" {
-  source       = "github.com/nubisproject/nubis-terraform//bucket?ref=v2.2.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
-  purpose      = "backup"
-  role         = "${module.worker.role}"
 }
 
 module "cache" {
