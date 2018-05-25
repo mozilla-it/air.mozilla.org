@@ -2,7 +2,8 @@
 class { 'nubis_apache': }
 
 class { 'apache::mod::wsgi':
-  package_name => 'libapache2-mod-wsgi-py3'
+  package_name => 'libapache2-mod-wsgi-py3',
+  mod_path     => "$::apache::params::lib_path/mod_wsgi.so",
 }
 
 #WSGI Setup for AirmoFront
