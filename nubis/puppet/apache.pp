@@ -19,6 +19,7 @@ apache::vhost { $project_name:
     threads      => '15',
     display-name => '%{GROUP}',
     home         => "/var/www/${project_name}",
+    python-home  => "/opt/${project_name}/venv",
   },
   wsgi_import_script          => "/var/www/${project_name}/airmozilla/wsgi.py",
   wsgi_import_script_options  => {

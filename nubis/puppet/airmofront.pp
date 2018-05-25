@@ -5,8 +5,20 @@ class { 'python' :
     dev     => true,
 }
 
+python::virtualenv { "/opt/${project_name}/venv":
+  ensure  => present,
+  version => '3',
+  require => [
+    Class['python'],
+  ]
+}
+
 python::requirements { "/var/www/${project_name}/requirements.txt" :
-  require =>  Class['python'],
+  virtualenv => "/opt/${project_name}/venv"
+  require =>  [
+    Class['python'],
+    Python::Virtualenv["/opt/${project_name}/venv"],
+  ]
 }
 
 file { "/var/www/${project_name}/airmozilla/settings.py":
@@ -21,19 +33,19 @@ file { "/var/www/${project_name}/airmozilla/settings_live.py":
 
 file { "/var/www/${project_name}/static/CACHE":
   ensure  => 'directory',
-  owner   => $apache::params::user,
-  group   => $apache::params::group,
+  owner   => $::apache::params::user,
+  group   => $::apache::params::group,
   require => [
-    Class['nubis_apache'],
+    Class['apache'],
   ],
 }
 
 file { "/var/www/${project_name}/static/scss":
   ensure  => 'directory',
-  owner   => $apache::params::user,
-  group   => $apache::params::group,
+  owner   => $::apache::params::user,
+  group   => $::apache::params::group,
   require => [
-    Class['nubis_apache'],
+    Class['apache'],
   ],
 }
 
