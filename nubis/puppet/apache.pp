@@ -21,13 +21,13 @@ apache::vhost { $project_name:
     home         => "/var/www/${project_name}",
     python-home  => "/opt/${project_name}/venv",
   },
-  wsgi_import_script          => "/var/www/${project_name}/airmozilla/wsgi.py",
+  wsgi_import_script          => "/var/www/${project_name}/airmozilla/wsgi_nubis.py",
   wsgi_import_script_options  => {
     process-group     => 'wsgi',
     application-group => '%{GLOBAL}',
   },
   wsgi_process_group          => 'wsgi',
-  wsgi_script_aliases         => { '/' => "/var/www/${project_name}/airmozilla/wsgi.py" },
+  wsgi_script_aliases         => { '/' => "/var/www/${project_name}/airmozilla/wsgi_nubis.py" },
 
   custom_fragment             => "
     # Don't set default expiry on anything

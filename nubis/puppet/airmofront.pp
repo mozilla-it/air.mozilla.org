@@ -32,6 +32,11 @@ file { "/var/www/${project_name}/airmozilla/settings_nubis.py":
   source => 'puppet:///nubis/files/settings.py'
 }
 
+file { "/var/www/${project_name}/airmozilla/wsgi_nubis.py":
+  ensure => present,
+  source => 'puppet:///nubis/files/wsgi.py'
+}
+
 file { "/var/www/${project_name}/static/CACHE":
   ensure  => 'directory',
   owner   => "www-data",
@@ -50,10 +55,12 @@ file { "/var/www/${project_name}/static/scss":
   ],
 }
 
-# Silence warnings about file not found
+# Help manage.py know what settings file to look at
 file { "/var/www/${project_name}/.env":
   ensure => present,
-  content => '',
+  content => "
+DJANGO_SETTINGS_MODULE=airmozilla.settings_nubis
+",
   owner  => root,
   group  => root,
   mode   => '0644',

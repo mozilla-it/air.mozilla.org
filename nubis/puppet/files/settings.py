@@ -3,6 +3,7 @@ import os
 from .settings import *
 
 import socket
+import os
 
 import imp
 nubis = imp.load_source('nubis', '/etc/nubis-config/airmofront.sh')
@@ -10,7 +11,10 @@ nubis = imp.load_source('nubis', '/etc/nubis-config/airmofront.sh')
 hostname = socket.gethostname()
 public_ip = socket.gethostbyname(hostname)
 
-DEBUG = False
+if hasattr(nubis, 'DEBUG'):
+  DEBUG = nubis.DEBUG
+else:
+  DEBUG = True
 
 CACHES = {
     'default': {
@@ -43,9 +47,4 @@ SECRET_KEY = nubis.APP_SECRET_KEY
 
 ALLOWED_HOSTS = ['localhost', 'air.mozilla.org', 'air.allizom.org', nubis.SITE_HOSTNAME, public_ip]
 
-# Mozilla is deploying this, and db backups aren't necesary since it's
-# generated on a schedule.
-# BACKUPDB_DIRECTORY = os.environ['BACKUP_DIR']
-STATIC_ROOT = os.environ['STATIC_ROOT']
-SECRET_KEY = os.environ['SECRET_KEY']
 COMPRESS_ENABLED = True
