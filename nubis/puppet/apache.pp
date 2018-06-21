@@ -45,7 +45,7 @@ apache::vhost { $project_name:
   aliases                     => [
     {
       alias => '/static',
-        path  => "/var/www/${project_name}/static",
+      path  => "/var/www/${project_name}/static",
     }
   ],
 
