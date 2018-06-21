@@ -7,12 +7,12 @@ ENV=.deployment_virtualenv
 HELPERS_COMMIT=40418b031ecf79c802110b2827f05b9d61210344
 HELPERS_COMMIT_FILE=$ENV/HELPERS_COMMIT
 
-if which python2 > /dev/null 2> /dev/null
+if command -v python2 > /dev/null 2> /dev/null
 then
-    EXE=$(which python2)
-elif python --version 2>&1 | egrep "^Python 2" > /dev/null
+    EXE=$(command -v python2)
+elif python --version 2>&1 | grep -E "^Python 2" > /dev/null
 then
-    EXE=$(which python)
+    EXE=$(command -v python)
 fi
 
 if [ -z "$EXE" ]
@@ -26,6 +26,8 @@ then
   virtualenv -p "$EXE" $ENV
   touch $HELPERS_COMMIT_FILE
 fi
+
+# shellcheck disable=SC1090
 source $ENV/bin/activate
 if [ "$HELPERS_COMMIT" != "$(cat $HELPERS_COMMIT_FILE)" ]
 then
