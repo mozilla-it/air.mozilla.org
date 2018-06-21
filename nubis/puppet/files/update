@@ -6,6 +6,9 @@ PYTHON=/opt/airmofront/venv/bin/python
 NUBIS_STACK=$(nubis-metadata NUBIS_STACK)
 NUBIS_ENVIRONMENT=$(nubis-metadata NUBIS_ENVIRONMENT)
 
+# Shove all logs to a log file as well
+exec &> >(tee >( ts > "/var/log/${NUBIS_STACK}-startup.log" )) 2>&1
+
 # Build our Consul prefix
 CONSUL_PREFIX="$NUBIS_STACK/$NUBIS_ENVIRONMENT"
 
