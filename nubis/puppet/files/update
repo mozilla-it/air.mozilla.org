@@ -18,5 +18,8 @@ consul lock "$CONSUL_PREFIX/migrate" \
 # Collect static content
 $PYTHON /var/www/airmofront/manage.py collectstatic --noinput
 
+# Compress assets
+$PYTHON /var/www/airmofront/manage.py compress --force
+
 # Once done, just reload/restart apache for good measure
 systemctl reload-or-restart apache2
