@@ -60,7 +60,7 @@ apache::vhost { $project_name:
     "set X-Nubis-Project ${project_name}",
     "set X-Nubis-Build   ${packer_build_name}",
     'set Strict-Transport-Security "max-age=31536000"',
-    'always set Content-Security-Policy default-src 'none'; font-src https://fonts.gstatic.com; img-src 'self' https://onlinexperiences.com https://www.google-analytics.com; script    -src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtm.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/    https://onlinexperiences.com/;',
+    "set Content-Security-Policy \"default-src 'none'; font-src https://fonts.gstatic.com; img-src 'self' https://onlinexperiences.com https://www.google-analytics.com; script -src     'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtm.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/          https://onlinexperiences.com;\"",
   ],
   rewrites                    => [
     {
