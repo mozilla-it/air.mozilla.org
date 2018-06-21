@@ -48,3 +48,6 @@ SECRET_KEY = nubis.APP_SECRET_KEY
 ALLOWED_HOSTS = ['localhost', 'air.mozilla.org', 'air.allizom.org', nubis.SITE_HOSTNAME, public_ip]
 
 COMPRESS_ENABLED = True
+COMPRESS_OFFILNE = True
+
+SECURE_HSTS_SECONDS = 86400
