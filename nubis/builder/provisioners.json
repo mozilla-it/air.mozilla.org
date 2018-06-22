@@ -14,6 +14,13 @@
     "source": "./",
     "destination": "/var/www/{{user `project_name`}}",
     "order": "2"
+  },
+  {
+    "type": "shell",
+    "inline": [
+      "consul-do $(nubis-metadata NUBIS_PROJECT)-$(nubis-metadata NUBIS_ENVIRONMENT)-manage $(hostname) && /opt/${project_name}/venv/bin/python /var/www/${project_name}/manage.py refresh_events"
+    ],
+    "order": "3"
   }
 ]
 }
