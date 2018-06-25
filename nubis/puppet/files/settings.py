@@ -14,7 +14,7 @@ public_ip = socket.gethostbyname(hostname)
 if hasattr(nubis, 'DEBUG'):
   DEBUG = nubis.DEBUG
 else:
-  DEBUG = True
+  DEBUG = False
 
 CACHES = {
     'default': {
