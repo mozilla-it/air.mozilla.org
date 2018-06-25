@@ -12,11 +12,12 @@ module "worker" {
 
   # EC2 for testing
   # ELB once done
-  health_check_type = "EC2"
+  health_check_type = "ELB"
 
   # CPU utilisation based autoscaling (with good defaults)
   scale_load_defaults = true
   min_instances       = 2
+  max_instances       = 32
 }
 
 module "load_balancer" {
