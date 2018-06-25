@@ -21,11 +21,12 @@ module "worker" {
 }
 
 module "load_balancer" {
-  source       = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.2.0"
-  region       = "${var.region}"
-  environment  = "${var.environment}"
-  account      = "${var.account}"
-  service_name = "${var.service_name}"
+  source               = "github.com/nubisproject/nubis-terraform//load_balancer?ref=v2.2.0"
+  region               = "${var.region}"
+  environment          = "${var.environment}"
+  account              = "${var.account}"
+  service_name         = "${var.service_name}"
+  ssl_cert_name_prefix = "${var.service_name}"
 }
 
 module "database" {
