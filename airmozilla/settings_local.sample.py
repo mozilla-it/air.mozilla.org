@@ -5,7 +5,7 @@ To use this, create a `.env` with DJANGO_SETTINGS_MODULE=airmozilla.settings_loc
 
 from .settings import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
