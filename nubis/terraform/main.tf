@@ -1,3 +1,7 @@
+provider “aws” {
+ region = “${var.region}”
+}
+
 module "worker" {
   source            = "github.com/nubisproject/nubis-terraform//worker?ref=v2.2.0"
   region            = "${var.region}"
