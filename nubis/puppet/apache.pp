@@ -64,6 +64,7 @@ apache::vhost { $project_name:
     "set X-Nubis-Project ${project_name}",
     "set X-Nubis-Build   ${packer_build_name}",
     "set Content-Security-Policy \"default-src 'none'; connect-src 'self'; font-src https://fonts.gstatic.com; img-src 'self' https://onlinexperiences.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtm.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;\"",
+    'set X-Content-Type-Options nosniff',
   ],
   rewrites                    => [
     {
