@@ -81,3 +81,13 @@ nubis::configuration { $project_name:
   reload => "/usr/local/bin/${project_name}-update"
 }
 
+file { '/etc/apache2/airmolegacyurlsmap.txt':
+  ensure  => present,
+  source  => 'puppet:///nubis/files/airmolegacyurlsmap.txt',
+  owner   => root,
+  group   => root,
+  mode    => '0644',
+  require => [
+    Class['apache'],
+  ],
+}
