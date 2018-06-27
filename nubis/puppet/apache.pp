@@ -46,6 +46,10 @@ apache::vhost { $project_name:
     {
       alias => '/static',
       path  => "/var/www/${project_name}/static",
+    },
+    {
+      alias => '/contribute.json',
+      path  => "/var/www/${project_name}/static/contribute.json",
     }
   ],
 
