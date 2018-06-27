@@ -11,10 +11,10 @@ nubis = imp.load_source('nubis', '/etc/nubis-config/airmofront.sh')
 hostname = socket.gethostname()
 public_ip = socket.gethostbyname(hostname)
 
+DEBUG = False
+
 if hasattr(nubis, 'DEBUG'):
-  DEBUG = nubis.DEBUG
-else:
-  DEBUG = False
+  DEBUG = nubis.DEBUG.lower() in ("true", "1")
 
 CACHES = {
     'default': {
