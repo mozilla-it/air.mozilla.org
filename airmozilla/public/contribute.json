@@ -1,0 +1,27 @@
+{
+  "name": "AirMoFront",
+  "description": "The public-facing front page of air.mozilla.org",
+  "repository": {
+    "url": "https://github.com/mozilla-itcloud/air.mozilla.org",
+    "type": "git",
+    "clone": "https://github.com/mozilla-itcloud/air.mozilla.org.git"
+  },
+  "participate": {
+    "home": "https://wiki.mozilla.org/Webdev/GetInvolved/mozilla.org",
+    "irc": "irc://irc.mozilla.org/",
+    "irc-contacts": []
+  },
+  "bugs": {
+    "list": "https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&bug_status=UNCONFIRMED&bug_status=NEW&product=Websites&component=air.mozilla.com",
+    "report": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=air.mozilla.com",
+    "mentored": "https://bugzilla.mozilla.org/buglist.cgi?f1=bug_mentor&o1=isnotempty&query_format=advanced&bug_status=NEW&product=Websites&component=air.mozilla.com"
+  },
+  "urls": {
+    "prod": "https://air.mozilla.org",
+    "stage": "https://air.allizom.org"
+  },
+  "keywords": [
+    "python",
+    "django"
+  ]
+}
