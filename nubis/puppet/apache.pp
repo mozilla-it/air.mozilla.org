@@ -74,9 +74,9 @@ apache::vhost { $project_name:
     },
     {
       comment      => 'Legacy Airmo URLs Redirects',
-      rewrite_map  => ['legacyurlsmap "txt:/etc/apache2/airmolegacyurlsmap.txt"'],
-      rewrite_cond => ['"${legacyurlsmap:$1} >"" [NC]'], # lint:ignore:single_quote_string_with_variables
-      rewrite_rule => ['"^/([a-zA-Z0-9-_]+)/?$" "${legacyurlsmap:$1}" [R,NC]'], # lint:ignore:single_quote_string_with_variables
+      rewrite_map  => ['legacyurlsmap txt:/etc/apache2/airmolegacyurlsmap.txt'],
+      rewrite_cond => ['${legacyurlsmap:$1} !="" [NC]'], # lint:ignore:single_quote_string_with_variables
+      rewrite_rule => ['^/([a-zA-Z0-9-_]+)/?$ ${legacyurlsmap:$1} [R,NC]'], # lint:ignore:single_quote_string_with_variables
     }
   ]
 }
