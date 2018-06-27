@@ -43,6 +43,8 @@ module "database" {
   engine                 = "postgres"
   name                   = "airmotest"
   username               = "airmotester"
+  multi_az               = true
+  instance_class         = "${lookup(var.db_instance_class, var.environment, lookup(var.db_instance_class, var.environment, "any"))}"
 }
 
 module "dns" {
