@@ -1,39 +1,43 @@
 # Air Mozilla Frontend
 
-## What is this?
+This is [https://air.mozilla.org](https://air.mozilla.org), a.k.a the
+"AirMo public-facing front page."
 
-This is https://air.mozilla.org, a.k.a the "AirMo public-facing front page."
+The AirMozilla video platform is migrating to a service that requires authentication
+(at [https://airmo.mozilla.org](https://airmo.mozilla.org)).
 
-The AirMozilla video platform is migrating to a service that requires authentication (at https://airmo.mozilla.org).
+This front page application exists to provide an anonymous index of publically-accessible
+video content on AirMozilla, and serves redirects to the source videos.
 
-This front page application exists to provide an anonymous index of publically-accessible video content on AirMozilla, and serves redirects to the source videos.
-
-## Where is this hosted?
+## Hosting
 
 This application lives in AWS, hosted by Mozilla's IT Cloud Engineering team.
 
-The production application lives at https://air.mozilla.org
+The production application lives at [https://air.mozilla.org](https://air.mozilla.org)
 
-There is a staging version of the application at https://air.allizom.org
+There is a staging version of the application at [https://air.allizom.org](https://air.allizom.org)
 
+## Maintenance Workflow
 
-## How do I contribute changes to the site?
-
-We accept pull requests into this repository (https://mozilla-itcloud/air.mozilla.org) with proposed changes.
+We accept pull requests into this repository
+[https://mozilla-itcloud/air.mozilla.org](https://mozilla-itcloud/air.mozilla.org)
+with proposed changes.
 
 When a change is merged to master, it's automatically deployed to our staging environment.
 
-The IT Cloud Engineering team will notify the product owners (the AirMozilla team), who will QA and approve the changes.
+The IT Cloud Engineering team will notify the product owners (the AirMozilla team),
+who will QA and approve the changes.
 
 IT Cloud Engineering will deploy approved changes to production manually.
 
 There's no user-facing downtime during deploys, so they can happen at any time.
 
-
 ## Legacy video URLs
 
-There are a number of legacy video URLs that need to remain live. These URLs and their new video destinations are described in [a mapping file](nubis/puppet/files/airmolegacyurlsmap.txt) in this repo, and redirects are served by this application.
-
+There are a number of legacy video URLs that need to remain live.
+These URLs and their new video destinations are described in
+[a mapping file](nubis/puppet/files/airmolegacyurlsmap.txt)
+in this repo, and redirects are served by this application.
 
 ## Developer Info
 
