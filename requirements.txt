@@ -14,7 +14,7 @@ django-compressor==2.2
 django-dotenv==1.4.2
 django-extensions==2.1.5
 django-pyscss==2.0.2
-django==1.11.18
+django>=1.11.19
 enum34==1.1.6             # via pyscss
 idna==2.8                 # via requests
 lxml==4.3.0
