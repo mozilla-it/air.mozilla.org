@@ -26,5 +26,5 @@ rcssmin==1.0.6            # via django-compressor
 requests==2.21.0
 rjsmin==1.0.12            # via django-compressor
 six==1.12.0               # via django-extensions, pyscss, python-dateutil, python-memcached
-urllib3==1.24.1           # via requests
+urllib3==1.24.2           # via requests
 werkzeug==0.14.1
