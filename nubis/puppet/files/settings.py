@@ -37,7 +37,7 @@ DATABASES = {
 INXPO_PARAMETERS = {
     'AUTH_CODE': nubis.inxpo_auth_code,
     'USER_CREDENTIALS': nubis.inxpo_user_credentials,
-    # retrieved from https://api.onlinexperiences.com/scripts/Server.nxp?LASCmd=AI:4;F:APIUTILS!50500&APIUserAuthCode=***REMOVED***&APIUserCredentials=***REMOVED***&OpCodeList=F&OutputFormat=X
+    # retrieved from https://api.onlinexperiences.com/scripts/Server.nxp?LASCmd=AI:4;F:APIUTILS!50500&APIUserAuthCode=chiathlunletrieswle5oaproableS&APIUserCredentials=vi7ciuslap8las71adoepleth5uyIa&OpCodeList=F&OutputFormat=X
     'SHOW_KEY': 44908,
     'SHOW_PACKAGE_KEY': 99827,
 }

@@ -4,8 +4,10 @@ $airmo_cron_enabled = true
 
 if $airmo_cron_enabled {
   #Run manage.py every hour
-  cron::hourly { "${project_name}-manage":
+  cron { "${project_name}-manage":
     user    => $apache::params::user,
+    hour    => '*',
+    minute  => '*/15',
     command => $manage_command,
   }
 }
