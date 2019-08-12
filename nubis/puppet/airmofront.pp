@@ -19,7 +19,10 @@ python::virtualenv { "/opt/${project_name}/venv":
   ]
 }
 
-python::requirements { "/var/www/${project_name}/requirements.txt" :
+package { 'libpq5':
+  ensure => 'latest',
+}
+->python::requirements { "/var/www/${project_name}/requirements.txt" :
   virtualenv => "/opt/${project_name}/venv",
   require    =>  [
     Class['python'],
