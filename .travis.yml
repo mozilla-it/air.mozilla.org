@@ -1,6 +1,4 @@
-sudo: required
-
-language: ruby
+language: python
 
 services:
   - docker
@@ -11,6 +9,16 @@ before_install:
 script:
   - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
   - docker build -t "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" .
+
+jobs:
+  include:
+    - stage: push
+      script:
+        docker push "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
+    - stage: release
+      if: tag IS present
+      script:
+        - docker tag airmozilla:$TRAVIS_TAG
 
 notifications:
   slack:
