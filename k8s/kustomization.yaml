@@ -3,5 +3,3 @@ kind: Kustomization
 resources:
 - service.yaml
 - deployment.yaml
-patchesStrategicMerge:
-  - flux-patch.yaml
