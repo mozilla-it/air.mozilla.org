@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: airmozilla-deployment
+  namespace: airmozilla
 spec:
   selector:
     matchLabels:

@@ -3,6 +3,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: airmozilla-deployment
+  namespace: airmozilla
   annotations:
-    fluxcd.io/automated: "true"
-    fluxcd.io/tag.web: glob:k8s-*
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.web: glob:k8s-*
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: web
+      containers:
+      - image: itsre/airmozilla:1
+        name: web
