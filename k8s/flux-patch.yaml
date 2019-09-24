@@ -10,5 +10,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/airmozilla:k8s-0421ff431bc5de7588a9357d7036148f1df00c6b
+      - image: itsre/airmozilla:k8s-0cf5a4be5f9ff82afe3b2a39c94c329c34686992
         name: web
