@@ -10,7 +10,7 @@ before_install:
 
 script:
   - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
-  - docker build -t "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
+  - docker build -t "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" .
 
 notifications:
   slack:
