@@ -12,7 +12,7 @@ jobs:
   - stage: build
     script:
     - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
-    - docker build -t airmozilla
+    - docker build -t airmozilla .
     - docker images
     - docker tag airmozilla "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
   - stage: push
