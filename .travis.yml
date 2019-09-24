@@ -1,3 +1,5 @@
+language: minimal
+
 branches:
   except:
   - "/^flux-*/"
@@ -14,12 +16,12 @@ jobs:
     - docker tag airmozilla "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
     - docker images
   - stage: push
-    if: env(DOCKER_USERNAME) IS present
+    if: env(DOCKER_PUSH_ENABLED)
     script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
   - stage: release
-    if: tag IS present
+    if: env(DOCKER_PUSH_ENABLED) AND (tag IS present)
     script:
     - docker tag "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_TAG"
 env:
