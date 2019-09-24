@@ -3,9 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: airmozilla-deployment
-spec:
-  template:
-    metadata:
-      annotations:
-        fluxcd.io/automated: "true"
-        fluxcd.io/tag.web: glob:k8s-*
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.web: glob:k8s-*
