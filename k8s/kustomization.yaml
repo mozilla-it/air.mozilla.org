@@ -3,8 +3,5 @@ kind: Kustomization
 resources:
 - service.yaml
 - deployment.yaml
-images:
-- name: itsre/airmozilla
-  newTag: k8s-60aacc067f0a76589df75b5382fff51dfdb3312e
 patchesStrategicMerge:
   - flux-patch.yaml
