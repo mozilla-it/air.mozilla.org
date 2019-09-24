@@ -6,19 +6,19 @@ services:
 before_install:
   - docker pull nubisproject/nubis-travis:master
 
-script:
-  - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
-  - docker build -t "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" .
-
 jobs:
   include:
+    - stage: test
+      script:
+        - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
+        - docker build -t "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" .
     - stage: push
       script:
         docker push "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
     - stage: release
       if: tag IS present
       script:
-        - docker tag airmozilla:$TRAVIS_TAG
+        - docker tag "airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" "airmozilla:$TRAVIS_BRANCH-$TRAVIS_TAG"
 
 notifications:
   slack:
