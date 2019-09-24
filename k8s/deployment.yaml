@@ -1,0 +1,19 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: airmozilla-deployment
+spec:
+  selector:
+    matchLabels:
+      app: airmozilla-web
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: airmozilla-web
+    spec:
+      containers:
+      - name: web
+        image: itsre/airmozilla:1
+        ports:
+        - containerPort: 80
