@@ -5,25 +5,14 @@ branches:
   - "/^flux-*/"
 services:
 - docker
-before_install:
-- docker pull nubisproject/nubis-travis:master
-jobs:
-  include:
-  - stage: build
-    script:
-    - docker run --mount type=bind,source="$(pwd)",target=/nubis/files nubisproject/nubis-travis:master
-    - docker build -t airmozilla .
-    - docker tag airmozilla "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
-    - docker images
-  - stage: push
-    if: env(DOCKER_PUSH_ENABLED)
-    script:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
-  - stage: release
-    if: env(DOCKER_PUSH_ENABLED) AND (tag IS present)
-    script:
-    - docker tag "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT" "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_TAG"
+
+script:
+- docker build -t airmozilla .
+- docker tag airmozilla "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
+- docker images
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
+
 env:
   global:
   - secure: srHjKVbyaopeOjAJ6TmUJg9//c5R1W8UM9/1cZUJaCTBe+klvY4/x+2DcMb8DZwk8YwJKxEikAsF+9t2Awm3gD9pJCFyvIUMChV+iBo8hcSoTZuBqDZ1gmyOdOu9S8+s0nB3LThQKAXkCOVMr5O+H0n1d0BUesqwJHpuJcq4gfu1gdia/GF9kqwH1lST8SBsRZlpWp7US6GiBNMubDIA5q/g+JiJGIshnBr0L/Spb5tbcJAnf8BMA0LX+Vz6mjjQdyp6rnFVwtxWK26MGUmpGXdm7GMEdDBFzu0hy3iWybZREudXW5oFqjnS3R/4YjH7Uec3VHgFOWf9QsVYe1IZvAF1aUUxGyCXonsmbXHy5gddJXqQoObU+VlrfOGx6MTaP0R8r1I8inOLLvWuX3Y7b+j3hb1MOtOLmETkaXPfVuTZj9M15eAJITGAD1C43Sw+b6kRcbayLqAMig6ZinRK25m37CtZ97uxjqHTHXCwTouyXtBUU957MIeB5urvyufRYYkPpPTbAuhCHluQsVYV2j4+ZhRQwN5zWIBLa41C2zfLyZmIJ03FFZastcqF493VKTlTecoLG41ZTo+esussJ/BVLlhUY3ZWzrz2Rwi4M/CtizEDoK1K8uzobxOHA4k/QO8quhA+abNUO0Gv4niWP97JopZx8q6WGZ83ZEKfFtM=
