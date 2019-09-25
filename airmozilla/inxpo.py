@@ -157,14 +157,14 @@ def retrieve_privacy_strategy():
 
     for channel_assignment in (
             security_group_data
-            .SecurityGroupChannelAssignment
+            .SecurityGroupChannelAssignments
             .SecurityGroupChannelAssignment
     ):
         private_booth_keys.add(channel_assignment.get('BoothKey'))
 
     for program_assignment in (
             security_group_data
-            .SecurityGroupProgramAssignment
+            .SecurityGroupProgramAssignments
             .SecurityGroupProgramAssignment
     ):
         private_event_keys.add(program_assignment.get('EventKey'))
