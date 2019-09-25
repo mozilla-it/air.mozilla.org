@@ -1,6 +1,10 @@
 #https://github.com/tiangolo/uwsgi-nginx-docker
 FROM tiangolo/uwsgi-nginx:python3.7
 
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+ && rm -rf /var/lib/apt/lists/*
+
 ADD . /app
 
 RUN pip3 install --no-cache-dir -r requirements.txt
