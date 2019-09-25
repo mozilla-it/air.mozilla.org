@@ -4,3 +4,7 @@ resources:
 - service.yaml
 - deployment.yaml
 - ingress.yaml
+- cron.yaml
+# For local testing
+#patchesStrategicMerge:
+#- flux-patch.yaml

@@ -1,0 +1,25 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: airmozilla-events
+  namespace: airmozilla
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.web: glob:k8s-*
+spec:
+  # Should be hourly but we are not ready yet
+  schedule: "*/24 * * * *"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 3600
+      template:
+        spec:
+          containers:
+          - name: airmozilla-events
+            image: itsre/airmozilla:1
+            args:
+            - /usr/local/bin/python
+            - /app/manage.py 
+            - refresh_events
+          restartPolicy: Never
