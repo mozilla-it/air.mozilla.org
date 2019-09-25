@@ -1,4 +1,20 @@
 ---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: airmozilla-events
+  namespace: airmozilla
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          $setElementOrder/containers:
+          - name: airmozilla-events
+          containers:
+          - image: itsre/airmozilla:k8s-32ee4fe7a235321560a1a8ba7b205d680e4dc0ff
+            name: airmozilla-events
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,21 +26,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/airmozilla:k8s-02850e0d410c8779610b135390458d8ec1812601
+      - image: itsre/airmozilla:k8s-32ee4fe7a235321560a1a8ba7b205d680e4dc0ff
         name: web
----
-apiVersion: batch/v1beta1
-kind: CronJob
-metadata:
-  name: airmozilla-events
-  namespace: airmozilla
-spec:
-  jobTemplate:
-    spec:
-      template:
-        spec:
-           $setElementOrder/containers:
-           - name: airmozilla-events
-           containers:
-           - image: itsre/airmozilla:k8s-02850e0d410c8779610b135390458d8ec1812601
-             name: airmozilla-events
