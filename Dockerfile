@@ -12,3 +12,4 @@ RUN python3 manage.py collectstatic --noinput
 RUN python3 manage.py compress --force
 
 COPY docker/uwsgi.ini /app/
+COPY docker/prestart.sh /app/
