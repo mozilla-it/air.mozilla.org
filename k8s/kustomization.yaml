@@ -5,6 +5,7 @@ resources:
 - deployment.yaml
 - ingress.yaml
 - cron.yaml
+- sealed-secret.yaml
 # For local testing
 #patchesStrategicMerge:
 #- flux-patch.yaml
