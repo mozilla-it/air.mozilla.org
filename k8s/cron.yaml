@@ -14,6 +14,7 @@ spec:
     spec:
       template:
         spec:
+          restartPolicy: Never
           containers:
           - name: airmozilla-events
             image: itsre/airmozilla:1
@@ -52,4 +53,23 @@ spec:
                 configMapKeyRef:
                   name: airmozilla-resources
                   key: provider
-          restartPolicy: Never
+            - name: INXPO_AUTH_CODE
+              valueFrom:
+                secretKeyRef:
+                  name: airmozilla-secrets
+                  key: inxpo.auth_code
+            - name: INXPO_USER_CREDENTIALS
+              valueFrom:
+                secretKeyRef:
+                  name: airmozilla-secrets
+                  key: inxpo.user_credentials
+            - name: INXPO_SHOW_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: airmozilla-secrets
+                  key: inxpo.show_key
+            - name: INXPO_SHOW_PACKAGE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: airmozilla-secrets
+                  key: inxpo.show_package_key

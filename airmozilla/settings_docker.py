@@ -19,6 +19,13 @@ DATABASES = {
     }
 }
 
+INXPO_PARAMETERS = {
+    'AUTH_CODE': os.getenv('INXPO_AUTH_CODE'),
+    'USER_CREDENTIALS': os.getenv('INXPO_USER_CREDENTIALS'),
+    'SHOW_KEY': os.getenv('INXPO_SHOW_KEY'),
+    'SHOW_PACKAGE_KEY': os.getenv('INXPO_SHOW_PACKAGE_KEY'),
+}
+
 COMPRESS_ENABLED = True
 COMPRESS_OFFILNE = True
 
