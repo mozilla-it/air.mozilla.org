@@ -22,3 +22,34 @@ spec:
         image: itsre/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
         ports:
         - containerPort: 80
+        env:
+          - name: DATABASE_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.host
+          - name: DATABASE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.name
+          - name: DATABASE_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.username
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.password
+          - name: REGION
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: region
+          - name: PROVIDER
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: provider
