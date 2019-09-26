@@ -14,6 +14,7 @@ spec:
     spec:
       template:
         spec:
+          restartPolicy: OnFailure
           containers:
           - name: airmozilla-events
             image: itsre/airmozilla:1
