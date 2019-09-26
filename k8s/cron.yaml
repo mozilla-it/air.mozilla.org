@@ -9,12 +9,13 @@ metadata:
     flux.weave.works/tag.web: glob:k8s-*
 spec:
   # Should be hourly but we are not ready yet
-  schedule: "*/24 * * * *"
+  schedule: "@daily"
   jobTemplate:
     spec:
       template:
         spec:
-          restartPolicy: OnFailure
+          restartPolicy: "OnFailure"
+          concurrencyPolicy: "Forbid"
           containers:
           - name: airmozilla-events
             image: itsre/airmozilla:1
