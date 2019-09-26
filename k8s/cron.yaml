@@ -10,12 +10,13 @@ metadata:
 spec:
   # Should be hourly but we are not ready yet
   schedule: "@daily"
+  # Dont run in parallel
+  concurrencyPolicy: "Forbid"
   jobTemplate:
     spec:
       template:
         spec:
           restartPolicy: "OnFailure"
-          concurrencyPolicy: "Forbid"
           containers:
           - name: airmozilla-events
             image: itsre/airmozilla:1
