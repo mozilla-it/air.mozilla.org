@@ -49,7 +49,7 @@ class Event(models.Model):
 
     class Meta:
         indexes = [
-            GinIndex(['fulltext']),
+            GinIndex(fields=['fulltext']),
         ]
 
     def __str__(self):
