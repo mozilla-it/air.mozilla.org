@@ -30,6 +30,13 @@ spec:
           httpGet:
             port: 80
             path: /readiness
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 512Mi
         env:
           - name: DATABASE_HOST
             valueFrom:
@@ -81,3 +88,4 @@ spec:
               secretKeyRef:
                 name: airmozilla-secrets
                 key: inxpo.show_package_key
+
