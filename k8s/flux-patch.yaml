@@ -2,6 +2,8 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
+  annotations:
+    flux.weave.works/automated: null
   name: airmozilla-events
   namespace: airmozilla
 spec:
