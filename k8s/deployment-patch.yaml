@@ -1,0 +1,18 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airmozilla-deployment
+  namespace: airmozilla
+spec:
+  template:
+    spec:
+      containers:
+      - name: web
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: 512Mi
+          requests:
+            cpu: 25m
+            memory: 128Mi
