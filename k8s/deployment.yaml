@@ -85,4 +85,3 @@ spec:
               secretKeyRef:
                 name: airmozilla-secrets
                 key: inxpo.show_package_key
-

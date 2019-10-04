@@ -1,20 +1,19 @@
 {
-"provisioners": [
-  {
-    "type": "shell",
-    "inline": [
-      "sudo apt update",
-      "sudo mkdir -p /var/www/{{user `project_name`}}",
-      "sudo chown nubis:nubis /var/www/{{user `project_name`}}"
-    ],
-    "order": "1"
-  },
-  {
-    "type": "file",
-    "source": "./",
-    "destination": "/var/www/{{user `project_name`}}",
-    "order": "2"
-  }
-]
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sudo apt update",
+                "sudo mkdir -p /var/www/{{user `project_name`}}",
+                "sudo chown nubis:nubis /var/www/{{user `project_name`}}"
+            ],
+            "order": "1"
+        },
+        {
+            "type": "file",
+            "source": "./",
+            "destination": "/var/www/{{user `project_name`}}",
+            "order": "2"
+        }
+    ]
 }
-

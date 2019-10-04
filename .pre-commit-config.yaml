@@ -1,0 +1,27 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-json
+    -   id: debug-statements
+    -   id: double-quote-string-fixer
+    -   id: end-of-file-fixer
+    -   id: fix-encoding-pragma
+        args: [--remove]
+    -   id: pretty-format-json
+        args: [
+          '--autofix',
+          '--indent', '4',
+          '--no-sort-keys',
+        ]
+    -   id: trailing-whitespace
+-   repo: meta
+    hooks:
+    -   id: check-hooks-apply
+    -   id: check-useless-excludes
+-   repo: git@github.com:Yelp/detect-secrets
+    rev: v0.12.4
+    hooks:
+    -   id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']

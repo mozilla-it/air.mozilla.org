@@ -199,7 +199,7 @@ def get_anonymous_login_url_for_event(event_key):
                 raise INXPOAPIException(row.get('Message'))
 
     assert data.OpCodeResult[2].get('OpCode') == 'T', \
-        "We assume that the results are returned in order."
+        'We assume that the results are returned in order.'
 
     login_ticket = data.OpCodeResult[2].ResultRow.LoginTicketKey
     return LOGIN_TICKET_URL.format(login_ticket=login_ticket)

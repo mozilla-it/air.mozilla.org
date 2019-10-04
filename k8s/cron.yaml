@@ -19,7 +19,7 @@ spec:
             image: itsre/airmozilla:1
             args:
             - /usr/local/bin/python
-            - /app/manage.py 
+            - /app/manage.py
             - refresh_events
             env:
             - name: DATABASE_HOST
