@@ -2,7 +2,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: airmozilla-events
+  name: events
   namespace: airmozilla
 spec:
   # Should be hourly but we are not ready yet
@@ -15,7 +15,7 @@ spec:
         spec:
           restartPolicy: "OnFailure"
           containers:
-          - name: airmozilla-events
+          - name: events
             image: itsre/airmozilla:1
             args:
             - /usr/local/bin/python
