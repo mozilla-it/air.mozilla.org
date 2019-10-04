@@ -15,7 +15,7 @@ spec:
           $setElementOrder/containers:
           - name: airmozilla-events
           containers:
-          - image: itsre/airmozilla:k8s-52d29a9aec0fd883e0375a9d194de6dcec850483
+          - image: itsre/airmozilla:v0.0.1-k8s.1
             name: airmozilla-events
 ---
 apiVersion: apps/v1
