@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.web: "semver:~0.0.1-k8s"
+    flux.weave.works/tag.web: semver:~0.0.1-k8s
   name: airmozilla-events
   namespace: airmozilla
 spec:
@@ -15,7 +15,7 @@ spec:
           $setElementOrder/containers:
           - name: airmozilla-events
           containers:
-          - image: itsre/airmozilla:v0.0.1-k8s.1
+          - image: itsre/airmozilla:k8s-1b4f4472ad0dce9344af8890071bbf91d61c1dff
             name: airmozilla-events
 ---
 apiVersion: apps/v1
@@ -32,5 +32,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/airmozilla:k8s-52d29a9aec0fd883e0375a9d194de6dcec850483
+      - image: itsre/airmozilla:k8s-1b4f4472ad0dce9344af8890071bbf91d61c1dff
         name: web
