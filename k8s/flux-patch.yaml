@@ -3,7 +3,7 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   annotations:
-    flux.weave.works/automated: null
+    flux.weave.works/automated: "false"
     flux.weave.works/tag.web: glob:k8s-*
   name: airmozilla-events
   namespace: airmozilla
@@ -22,7 +22,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    flux.weave.works/automated: null
+    flux.weave.works/automated: "false"
     flux.weave.works/tag.web: glob:k8s-*
   name: airmozilla-deployment
   namespace: airmozilla
