@@ -4,6 +4,7 @@ kind: CronJob
 metadata:
   annotations:
     flux.weave.works/automated: null
+    flux.weave.works/tag.web: glob:k8s-*
   name: airmozilla-events
   namespace: airmozilla
 spec:
@@ -22,6 +23,7 @@ kind: Deployment
 metadata:
   annotations:
     flux.weave.works/automated: null
+    flux.weave.works/tag.web: glob:k8s-*
   name: airmozilla-deployment
   namespace: airmozilla
 spec:

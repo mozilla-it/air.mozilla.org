@@ -4,9 +4,6 @@ kind: CronJob
 metadata:
   name: airmozilla-events
   namespace: airmozilla
-  annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.web: glob:k8s-*
 spec:
   # Should be hourly but we are not ready yet
   schedule: "@daily"

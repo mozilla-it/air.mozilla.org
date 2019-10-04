@@ -4,9 +4,6 @@ kind: Deployment
 metadata:
   name: airmozilla-deployment
   namespace: airmozilla
-  annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.web: glob:k8s-*
 spec:
   selector:
     matchLabels:
