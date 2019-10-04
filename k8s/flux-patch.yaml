@@ -4,7 +4,7 @@ kind: CronJob
 metadata:
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.web: glob:k8s-*
+    flux.weave.works/tag.web: "semver:~0.0.1-k8s"
   name: airmozilla-events
   namespace: airmozilla
 spec:
