@@ -24,7 +24,7 @@ metadata:
   annotations:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.web: glob:k8s-*
-  name: airmozilla-deployment
+  name: airmozilla
   namespace: airmozilla
 spec:
   template:
