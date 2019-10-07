@@ -59,6 +59,11 @@ apache::vhost { $project_name:
   ],
   access_log_env_var          => '!internal',
   access_log_format           => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
+
+  # Use rotatelogs for logs
+  access_log_pipe => "|rotatelogs -L${::apache::logroot}/${project_name}_access.log ${::apache::logroot}/${project_name}_access.log.%a 86400",
+  error_log_pipe => "|rotatelogs -L${::apache::logroot}/${project_name}_error.log ${::apache::logroot}/${project_name}_error.log.%a 86400",
+
   headers                     => [
     "set X-Nubis-Version ${project_version}",
     "set X-Nubis-Project ${project_name}",
@@ -79,4 +84,12 @@ apache::vhost { $project_name:
       rewrite_rule => ['^/([a-zA-Z0-9-_]+)/?$ ${legacyurlsmap:$1} [R,NC]'], # lint:ignore:single_quote_string_with_variables
     }
   ]
+}
+
+# Disable logrotate
+file { '/etc/logrotate.d/apache2':
+  ensure => absent,
+  require => [
+    Class['Nubis::Apache'],
+  ],
 }
