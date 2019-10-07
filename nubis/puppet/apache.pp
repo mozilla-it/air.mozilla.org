@@ -90,6 +90,6 @@ apache::vhost { $project_name:
 file { '/etc/logrotate.d/apache2':
   ensure => absent,
   require => [
-    Class['Nubis::Apache'],
+    Class['Nubis_Apache'],
   ],
 }
