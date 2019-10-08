@@ -86,6 +86,12 @@ apache::vhost { $project_name:
   ]
 }
 
+file { "${::apache::logroot}":
+  ensure => directory,
+  group => 'www-data',
+  mode  => '0770',
+}
+
 # Disable logrotate
 file { '/etc/logrotate.d/apache2':
   ensure => absent,
