@@ -61,8 +61,8 @@ apache::vhost { $project_name:
   access_log_format           => '%a %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"',
 
   # Use rotatelogs for logs
-  access_log_pipe => "|/usr/bin/rotatelogs -L${::apache::logroot}/${project_name}_access.log ${::apache::logroot}/${project_name}_access.log.%a 86400",
-  error_log_pipe => "|/usr/bin/rotatelogs -L${::apache::logroot}/${project_name}_error.log ${::apache::logroot}/${project_name}_error.log.%a 86400",
+  access_log_pipe => "|/usr/bin/rotatelogs -fc -L${::apache::logroot}/${project_name}_access.log ${::apache::logroot}/${project_name}_access.log.%a 86400",
+  error_log_pipe => "|/usr/bin/rotatelogs -fc -L${::apache::logroot}/${project_name}_error.log ${::apache::logroot}/${project_name}_error.log.%a 86400",
 
   headers                     => [
     "set X-Nubis-Version ${project_version}",
