@@ -2,7 +2,6 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: airmozilla
-  namespace: airmozilla
 spec:
   maxReplicas: 4
   minReplicas: 2
