@@ -13,6 +13,41 @@ spec:
       labels:
         app: airmozilla-web
     spec:
+      initContainers:
+      - name: migrate
+        image: itsre/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
+        command:
+          - python
+          - manage.py
+          - migrate
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 125m
+            memory: 256Mi
+        env:
+          - name: DATABASE_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.host
+          - name: DATABASE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.name
+          - name: DATABASE_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.username
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: airmozilla-resources
+                key: database.password
       containers:
       - name: web
         image: itsre/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d

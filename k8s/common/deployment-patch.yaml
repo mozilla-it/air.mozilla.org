@@ -6,6 +6,7 @@ metadata:
   annotations:
    flux.weave.works/automated: "true"
    flux.weave.works/tag.web: "glob:k8s-*"
+   flux.weave.works/tag.migrate: "glob:k8s-*"
 spec:
   template:
     spec:
