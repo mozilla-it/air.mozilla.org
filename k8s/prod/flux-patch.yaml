@@ -12,7 +12,7 @@ spec:
           $setElementOrder/containers:
           - name: events
           containers:
-          - image: itsre/airmozilla:v0.0.1-k8s.1
+          - image: itsre/airmozilla:v0.0.1-k8s.2
             name: events
 ---
 apiVersion: apps/v1
@@ -26,5 +26,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/airmozilla:v0.0.1-k8s.1
+      - image: itsre/airmozilla:v0.0.1-k8s.2
         name: web
