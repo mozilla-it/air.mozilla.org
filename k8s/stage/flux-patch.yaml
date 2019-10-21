@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airmozilla
+  namespace: airmozilla-stage
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: web
+      containers:
+      - image: itsre/airmozilla:k8s-f9b16cfce0d806703eeef8aeef5a5cc61a1b0f36
+        name: web
