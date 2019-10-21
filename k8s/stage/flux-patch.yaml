@@ -1,4 +1,20 @@
 ---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: events
+  namespace: airmozilla-stage
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          $setElementOrder/containers:
+          - name: events
+          containers:
+          - image: itsre/airmozilla:k8s-f9b16cfce0d806703eeef8aeef5a5cc61a1b0f36
+            name: events
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
