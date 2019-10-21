@@ -10,6 +10,7 @@ script:
 - docker images
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
+- env | grep TRAVIS
 env:
   global:
   - secure: u9cJ0DpUHAN2hjI3U+WnaP6oN9EXB9gYIBTpKwvb/iLBjN1qHklLiO7O1eQVrt93A0GVEiseRPCEG4CqkVlqtM7SziuMv6dZX4Fp9ydlxicLtoXqAeapXKtYce1xtgB65yBMOHxFigOnNkVp0GAklb5dukF4oGVmg6ni37qshCky2sjOL0zabA1bpgcAM4rrU3590DFCdPBJOD9v49G6sRvBByWQEcEQSduVJsTV30jmRlX+BOtFG7t+vBG3BCXqB/Oa6zSR+Y9/GgtPvubMHnUEti+4WTO4rL+gnRBmGEOc1PdCVtJIP2Gg6Y+D971uLTOl8dI7F6jRPO8thf9Ye+83W/hg75wEilLwK0yeWuSQZpn6luUzurcbZyiPh2nEFXgZSDgFu2pxtal1yihRLJp3LMESr+21IFpwFwLnlY3aHpe3a4R9acI0D8ZZi9fhBrWoCSLinS0L68nBR2nJQW56U/lwosUoJWAVZ3p99Dz4fpZvDebuuezrwRU4ywx4Rl5+Z7N6ig4SrkrHxFpuoUizJDqJN/YvEPswtgbr05L/agIiMmwuqjGC4j3pw8eT7+YEkLsOY1bW1ozUvZ+eTnDvHUiMV6Vvj+ASEcFJhfdMNXn8ha+DLvH1jL28/qBzJnw7c0z1PufUHPMaWR4oUcuVRWY5kus5YA813JPC4y4=
