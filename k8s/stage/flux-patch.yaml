@@ -12,7 +12,7 @@ spec:
           $setElementOrder/containers:
           - name: events
           containers:
-          - image: itsre/airmozilla:k8s-2db679f1ce97375444bf7ad513d56012b5f15da5
+          - image: itsre/airmozilla:k8s-269a49ef3ccd28c73c0cf93c3e773c2f5cb383a6
             name: events
 ---
 apiVersion: apps/v1
@@ -26,5 +26,5 @@ spec:
       $setElementOrder/containers:
       - name: web
       containers:
-      - image: itsre/airmozilla:k8s-2db679f1ce97375444bf7ad513d56012b5f15da5
+      - image: itsre/airmozilla:k8s-269a49ef3ccd28c73c0cf93c3e773c2f5cb383a6
         name: web
