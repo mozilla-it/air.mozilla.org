@@ -6,7 +6,6 @@ metadata:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.events: semver:~0.0.1-k8s
   name: events
-  namespace: airmozilla
 spec:
   jobTemplate:
     spec:
