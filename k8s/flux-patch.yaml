@@ -24,7 +24,6 @@ metadata:
     flux.weave.works/automated: "true"
     flux.weave.works/tag.web: glob:k8s-*
   name: airmozilla
-  namespace: airmozilla
 spec:
   template:
     spec:
