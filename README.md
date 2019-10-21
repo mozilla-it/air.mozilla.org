@@ -11,7 +11,7 @@ video content on AirMozilla, and serves redirects to the source videos.
 
 ## Hosting
 
-This application lives in AWS, hosted by Mozilla's IT Cloud Engineering team.
+This application lives in AWS/Kubernetes, hosted by Mozilla's IT Cloud Engineering team.
 
 The production application lives at [https://air.mozilla.org](https://air.mozilla.org)
 
