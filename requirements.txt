@@ -13,7 +13,7 @@ django-compressor==2.3
 django-dotenv==1.4.2
 django-extensions==2.2.5
 django-pyscss==2.0.2
-django==2.2.5
+django==2.2.6
 idna==2.8                 # via requests
 lxml==4.4.1
 psycopg2==2.8.4
