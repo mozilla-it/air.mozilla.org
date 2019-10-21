@@ -25,6 +25,11 @@ spec:
     spec:
       $setElementOrder/containers:
       - name: web
+      $setElementOrder/initContainers:
+      - name: migrate
       containers:
       - image: itsre/airmozilla:v0.0.1-k8s.3-4cc45df9bffd2d11b7ad7e271214b2332dacec56
         name: web
+      initContainers:
+      - image: itsre/airmozilla:v0.0.1-k8s.3-4cc45df9bffd2d11b7ad7e271214b2332dacec56
+        name: migrate
