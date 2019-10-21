@@ -5,3 +5,10 @@ bases:
  - ../common
 patchesStrategicMerge:
 - releases-patch.yaml
+patchesJson6902:
+- target:
+    group: extensions
+    version: v1beta1
+    kind: Ingress
+    name: airmozilla
+  path: ingress_patch.yaml
