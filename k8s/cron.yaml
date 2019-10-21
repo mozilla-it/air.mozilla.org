@@ -3,7 +3,6 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: events
-  namespace: airmozilla
 spec:
   # Should be hourly but we are not ready yet
   schedule: "@daily"
