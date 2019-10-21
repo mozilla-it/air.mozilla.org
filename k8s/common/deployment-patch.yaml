@@ -3,6 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: airmozilla
+  annotations:
+   flux.weave.works/automated: "true"
+   flux.weave.works/tag.web: "glob:k8s-*"
 spec:
   template:
     spec:

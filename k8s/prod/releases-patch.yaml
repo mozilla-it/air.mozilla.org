@@ -1,0 +1,15 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airmozilla
+  annotations:
+   flux.weave.works/tag.web: "semver:~0.0.1-k8s"
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.events: "semver:~0.0.1-k8s"
+  name: events

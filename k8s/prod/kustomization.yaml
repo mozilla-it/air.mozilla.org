@@ -3,3 +3,5 @@ namespace: airmozilla-prod
 kind: Kustomization
 bases:
  - ../common
+patchesStrategicMerge:
+- releases-patch.yaml
