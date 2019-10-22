@@ -10,3 +10,5 @@ patchesJson6902:
     kind: Ingress
     name: airmozilla
   path: ingress_patch.yaml
+commonLabels:
+  environment: stage
