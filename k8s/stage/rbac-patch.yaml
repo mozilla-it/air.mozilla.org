@@ -19,7 +19,7 @@
   path: /rules/-
   value:
     apiGroups:
-    - "extensions"
+    - extensions
     resources:
       - ingresses
     verbs:
