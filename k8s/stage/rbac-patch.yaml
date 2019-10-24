@@ -10,7 +10,7 @@
   value : services
 - op: add
   path: /rules/0/resources/-
-  value : ingress
+  value : ingresses
 - op: add
   path: /rules/0/resources/-
   value : endpoints
