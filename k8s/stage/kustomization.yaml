@@ -3,12 +3,20 @@ namespace: airmozilla-stage
 kind: Kustomization
 bases:
  - ../common
+resources:
+ - https://github.com/kubernetes/ingress-nginx///deploy/aws/l7?ref=nginx-0.26.1
 patchesJson6902:
 - target:
     group: extensions
     version: v1beta1
     kind: Ingress
     name: airmozilla
-  path: ingress_patch.yaml
+  path: ingress-patch.yaml
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: nginx-ingress-controller
+  path: nginx-args-patch.yaml
 commonLabels:
   environment: stage
