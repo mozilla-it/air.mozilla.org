@@ -2,5 +2,5 @@
   path: /spec/rules/0/host
   value: air.allizom.org
 - op: add
-  path: /metadata/annotations/kubernetes.io~ingress.class
+  path: /metadata/annotations/kubernetes.io~1ingress.class
   value: nginx-discourse-prod
