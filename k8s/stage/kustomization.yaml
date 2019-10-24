@@ -5,6 +5,8 @@ bases:
  - ../common
 resources:
  - https://github.com/kubernetes/ingress-nginx///deploy/aws/l7?ref=nginx-0.26.1
+patchesStrategicMerge:
+ - ssl-patch.yaml
 patchesJson6902:
 - target:
     group: extensions
