@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 namespace: airmozilla-prod
 kind: Kustomization
 resources:
+- https://github.com/kubernetes/ingress-nginx///deploy/aws/l7?ref=nginx-0.26.1
 - service.yaml
 - deployment.yaml
 - ingress.yaml
@@ -10,6 +11,13 @@ resources:
 - hpa.yaml
 patchesStrategicMerge:
 - deployment-patch.yaml
+patchesJson6902:
+- target:
+    group: rbac.authorization.k8s.io
+    version: v1beta1
+    kind: Role
+    name: nginx-ingress-role
+  path: rbac-patch.yaml
 images:
 - name: itsre/airmozilla
   newTag: latest

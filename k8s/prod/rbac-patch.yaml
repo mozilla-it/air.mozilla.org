@@ -2,4 +2,4 @@
 - op: replace
   path: /rules/1/resourceNames
   value:
-    - ingress-controller-leader-nginx-airmozilla-stage
+    - ingress-controller-leader-nginx-airmozilla-prod

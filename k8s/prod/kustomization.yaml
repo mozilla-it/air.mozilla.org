@@ -4,13 +4,26 @@ kind: Kustomization
 bases:
  - ../common
 patchesStrategicMerge:
-- releases-patch.yaml
+ - ssl-patch.yaml
 patchesJson6902:
+- target:
+    group: rbac.authorization.k8s.io
+    version: v1beta1
+    kind: Role
+    name: nginx-ingress-role
+  path: rbac-patch.yaml
+
 - target:
     group: extensions
     version: v1beta1
     kind: Ingress
     name: airmozilla
-  path: ingress_patch.yaml
+  path: ingress-patch.yaml
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: nginx-ingress-controller
+  path: nginx-args-patch.yaml
 commonLabels:
   environment: prod
