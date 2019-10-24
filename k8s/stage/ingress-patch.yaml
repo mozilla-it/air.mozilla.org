@@ -3,4 +3,4 @@
   value: air.allizom.org
 - op: add
   path: /metadata/annotations/kubernetes.io~1ingress.class
-  value: nginx-discourse-prod
+  value: nginx-airmozilla-prod
