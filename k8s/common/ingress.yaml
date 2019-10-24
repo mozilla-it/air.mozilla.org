@@ -7,6 +7,11 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
   name: airmozilla
 spec:
-  backend:
-    serviceName: airmozilla
-    servicePort: 80
+  rules:
+  - host: not-set
+    http:
+      paths:
+      - backend:
+          serviceName: airmozilla
+          servicePort: 80
+        path: /
