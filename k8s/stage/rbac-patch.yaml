@@ -10,11 +10,17 @@
   value : services
 - op: add
   path: /rules/0/resources/-
-  value : ingresses
-- op: add
-  path: /rules/0/resources/-
   value : endpoints
 - op: replace
   path: /rules/1/resourceNames
   value:
     - ingress-controller-leader-nginx-airmozilla-stage
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+    - "extensions"
+    resources:
+      - ingresses
+    verbs:
+      - list
