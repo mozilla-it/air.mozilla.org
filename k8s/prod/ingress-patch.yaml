@@ -1,3 +1,6 @@
 - op: add
   path: /metadata/annotations/kubernetes.io~1ingress.class
   value: nginx-airmozilla-prod
+- op: replace
+  path: /spec/rules/0/host
+  value: air.mozilla.org
