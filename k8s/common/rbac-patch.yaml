@@ -12,9 +12,6 @@
   path: /rules/0/resources/-
   value : endpoints
 - op: add
-  path: /rules/2/resources/-
-  value : events
-- op: add
   path: /rules/-
   value:
     apiGroups:
@@ -22,5 +19,25 @@
     resources:
       - ingresses
     verbs:
+      - get
       - list
       - watch
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+    - ""
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+- op: add
+  path: /rules/-
+  value:
+    apiGroups:
+    - "extensions"
+    resources:
+      - ingresses/status
+    verbs:
+      - update
