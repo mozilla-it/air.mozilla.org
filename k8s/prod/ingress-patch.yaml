@@ -4,3 +4,6 @@
 - op: replace
   path: /spec/rules/0/host
   value: air.mozilla.org
+- op: replace
+  path: /spec/rules/1/host
+  value: airmozilla-prod.itsre-apps.mozit.cloud

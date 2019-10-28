@@ -4,3 +4,6 @@
 - op: replace
   path: /spec/rules/0/host
   value: air.allizom.org
+- op: replace
+  path: /spec/rules/1/host
+  value: airmozilla-stage.itsre-apps.mozit.cloud
