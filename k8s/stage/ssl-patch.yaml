@@ -3,5 +3,5 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-west-2:783633885093:certificate/811a5a77-5bb4-4226-9f25-829bbf1681db
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-west-2:783633885093:certificate/a5b437a6-0734-4197-8196-e1e6aa738c3a
   name: ingress-nginx
