@@ -5,8 +5,8 @@ metadata:
   name: airmozilla
   annotations:
    flux.weave.works/automated: "true"
-   flux.weave.works/tag.web: "glob:k8s-*"
-   flux.weave.works/tag.migrate: "glob:k8s-*"
+   flux.weave.works/tag.web: "glob:master-*"
+   flux.weave.works/tag.migrate: "glob:master-*"
 spec:
   template:
     spec:

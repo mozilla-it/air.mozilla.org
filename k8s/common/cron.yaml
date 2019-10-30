@@ -5,7 +5,7 @@ metadata:
   name: events
   annotations:
    flux.weave.works/automated: "true"
-   flux.weave.works/tag.events: "glob:k8s-*"
+   flux.weave.works/tag.events: "glob:master-*"
 spec:
   # Should be hourly but we are not ready yet
   schedule: "@daily"

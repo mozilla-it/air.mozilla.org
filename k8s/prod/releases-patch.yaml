@@ -4,13 +4,13 @@ kind: Deployment
 metadata:
   name: airmozilla
   annotations:
-   flux.weave.works/tag.web: "semver:~0.0.1-k8s"
-   flux.weave.works/tag.migrate: "semver:~0.0.1-k8s"
+   flux.weave.works/tag.web: "semver:~0"
+   flux.weave.works/tag.migrate: "semver:~0"
 ---
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   annotations:
     flux.weave.works/automated: "true"
-    flux.weave.works/tag.events: "semver:~0.0.1-k8s"
+    flux.weave.works/tag.events: "semver:~0"
   name: events
