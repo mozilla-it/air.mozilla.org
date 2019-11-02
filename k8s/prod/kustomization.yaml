@@ -12,6 +12,7 @@ patchesJson6902:
     version: v1
     kind: Deployment
     name: airmozilla
+ path: deployment-patch.yaml
 - target:
     group: rbac.authorization.k8s.io
     version: v1beta1
