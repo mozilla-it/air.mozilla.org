@@ -1,12 +1,3 @@
-map $request_uri $redirect_uri {
-    default "";
-    /code-rush https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E290546;
-}
-
-if ($redirect_uri != "") {
-  rewrite ^(.*)$ $redirect_uri permanent;
-}
-
 code-rush https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E290546
 firefox-3-5-video-tutorial https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E290547
 id-drive-that https://onlinexperiences.com/Launch/Event.htm?ShowKey=44908&DisplayItem=E290548
