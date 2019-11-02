@@ -69,6 +69,13 @@ spec:
             cpu: 125m
             memory: 256Mi
         env:
+          - name: NEW_RELIC_APP_NAME
+            value: air.mozilla.org.unset
+          - name: NEW_RELIC_LICENSE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: airmozilla-secrets
+                key: newrelic.license_key
           - name: DATABASE_HOST
             valueFrom:
               configMapKeyRef:
