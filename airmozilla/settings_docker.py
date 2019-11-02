@@ -16,6 +16,7 @@ DATABASES = {
         'USER':  os.getenv('DATABASE_USERNAME'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': os.getenv('DATABASE_HOST'),
+        'CONN_MAX_AGE': 60,
     }
 }
 
