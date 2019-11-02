@@ -17,6 +17,9 @@ ENV DJANGO_SETTINGS_MODULE=airmozilla.settings_docker
 RUN python3 manage.py collectstatic --noinput
 RUN python3 manage.py compress --force
 
+# XXX: This file needs entries to be '/' prefixed
+COPY nubis/puppet/files/airmolegacyurlsmap.txt /app/airmolegacyurlsmap.map
+
 COPY docker/uwsgi.ini /app/
 COPY docker/prestart.sh /app/
 COPY docker/wsgi.py /app

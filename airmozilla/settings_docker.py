@@ -2,7 +2,8 @@ import os
 
 from .settings import *
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False)
+
 ALLOWED_HOSTS = [ '*' ]
 
 # XXX: Needs changing
