@@ -3,11 +3,8 @@ namespace: airmozilla-stage
 kind: Kustomization
 bases:
  - ../common
-resources:
- - nginx-hpa.yaml
 patchesStrategicMerge:
  - ssl-patch.yaml
- - nginx-resources-patch.yaml
 patchesJson6902:
 - target:
     group: apps

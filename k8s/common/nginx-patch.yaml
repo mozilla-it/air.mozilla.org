@@ -8,3 +8,17 @@ spec:
   - name: https
     port: 443
     targetPort: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller
+spec:
+  template:
+    spec:
+      containers:
+      - name: nginx-ingress-controller
+        resources:
+          requests:
+            cpu: 1
+            memory: 512Mi

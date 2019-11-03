@@ -9,6 +9,7 @@ resources:
 - cron.yaml
 - sealed-secret.yaml
 - hpa.yaml
+- nginx-hpa.yaml
 patchesStrategicMerge:
 - deployment-patch.yaml
 - nginx-patch.yaml
