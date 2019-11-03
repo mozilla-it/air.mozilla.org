@@ -11,4 +11,3 @@ spec:
     kind: Deployment
     name: nginx-ingress-controller
   targetCPUUtilizationPercentage: 50
-  targetMemoryUtilizationPercentage: 50
