@@ -5,4 +5,4 @@
   path: /spec/template/spec/containers/0/env/-
   value:
     name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
-    value: true
+    value: "true"
