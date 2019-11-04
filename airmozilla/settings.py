@@ -122,9 +122,8 @@ COMPRESS_PRECOMPILERS = (
 INXPO_PARAMETERS = {
     'AUTH_CODE': 'missing auth code',
     'USER_CREDENTIALS': 'missing user credentials',
-    # retrieved from https://api.onlinexperiences.com/scripts/Server.nxp?LASCmd=AI:4;F:APIUTILS!50500&APIUserAuthCode=chiathlunletrieswle5oaproableS&APIUserCredentials=vi7ciuslap8las71adoepleth5uyIa&OpCodeList=F&OutputFormat=X
-    'SHOW_KEY': 44908,
-    'SHOW_PACKAGE_KEY': 99827,
+    'SHOW_KEY': 0,
+    'SHOW_PACKAGE_KEY': 0,
 }
 PAGE_SIZE = 16
 
