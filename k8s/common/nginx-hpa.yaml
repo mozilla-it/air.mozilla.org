@@ -10,4 +10,4 @@ spec:
     apiVersion: extensions/v1beta1
     kind: Deployment
     name: nginx-ingress-controller
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 90
