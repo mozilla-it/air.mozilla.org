@@ -19,6 +19,9 @@ spec:
       containers:
       - name: nginx-ingress-controller
         resources:
-          requests:
+          limits:
             cpu: 1000m
             memory: 512Mi
+          requests:
+            cpu: 500m
+            memory: 256Mi
