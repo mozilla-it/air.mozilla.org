@@ -26,4 +26,4 @@ images:
 commonLabels:
   owner: gozer
   team: itsre
-  cost-center: "1440"
+  cost_center: "1440"
