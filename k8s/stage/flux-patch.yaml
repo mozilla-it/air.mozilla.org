@@ -28,8 +28,8 @@ spec:
       $setElementOrder/initContainers:
       - name: migrate
       containers:
-      - image: itsre/airmozilla:master-8fcd592f68bbf80e0a61192d19dd4b0b9d0c0e46
+      - image: itsre/airmozilla:master-38b099bcb4da6375e47313bbcf35cc3ccf139b0f
         name: web
       initContainers:
-      - image: itsre/airmozilla:master-8fcd592f68bbf80e0a61192d19dd4b0b9d0c0e46
+      - image: itsre/airmozilla:master-38b099bcb4da6375e47313bbcf35cc3ccf139b0f
         name: migrate
