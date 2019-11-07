@@ -9,7 +9,7 @@ script:
 - docker tag airmozilla "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"
 - docker images
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"; done
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push "itsre/airmozilla:$TRAVIS_BRANCH-$TRAVIS_COMMIT"; fi
 - if [ "$TRAVIS_TAG" != "" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker tag airmozilla "itsre/airmozilla:$TRAVIS_TAG"; fi
 - if [ "$TRAVIS_TAG" != "" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker push "itsre/airmozilla:$TRAVIS_TAG"; fi
 env:
