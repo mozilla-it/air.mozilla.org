@@ -21,7 +21,7 @@ variable "db_instance_class" {
 
   default = {
     stage = "db.t2.micro"
-    prod  = "db.r3.large"
+    prod  = "db.t2.micro"
     any   = "db.t2.micro"
   }
 }
