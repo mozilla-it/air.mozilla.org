@@ -1,11 +1,15 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.1.0
+    rev: v2.4.0
     hooks:
     -   id: check-added-large-files
     -   id: check-json
-    -   id: debug-statements
+    -   id: check-yaml
+        args: [
+          '--multi',
+        ]
     -   id: double-quote-string-fixer
+    -   id: trailing-whitespace
     -   id: end-of-file-fixer
     -   id: fix-encoding-pragma
         args: [--remove]

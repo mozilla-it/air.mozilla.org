@@ -1,5 +1,9 @@
 # Air Mozilla Frontend
 
+[![Build Status](https://travis-ci.org/mozilla-it/air.mozilla.org.svg?branch=master)](https://travis-ci.org/mozilla-it/air.mozilla.org)
+
+## Summary
+
 This is [https://air.mozilla.org](https://air.mozilla.org), a.k.a the
 "AirMo public-facing front page."
 
