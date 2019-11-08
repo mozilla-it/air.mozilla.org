@@ -15,6 +15,7 @@ script:
 before_deploy:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker tag $IMAGE_NAME "$IMAGE_NAME:$SAFE_BRANCH_NAME-$TRAVIS_COMMIT"
+- docker tag $IMAGE_NAME "$IMAGE_NAME:$SAFE_BRANCH_NAME-latest"
 - if [ "$TRAVIS_TAG" != "" ]; then docker tag airmozilla "IMAGE_NAME:$TRAVIS_TAG"; fi
 
 deploy:
