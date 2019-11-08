@@ -5,8 +5,8 @@ branches:
 services:
 - docker
 before_script:
-  - docker pull "$IMAGE_NAME" || true
   - SAFE_BRANCH_NAME=$(echo $TRAVIS_BRANCH | perl -pe's/[^a-zA-Z0-9_.-]/_/g' )
+  - docker pull "$IMAGE_NAME:$SAFE_BRANCH_NAME-latest" || true
 after_script:
   - docker images
 script:
@@ -19,10 +19,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: docker push "$IMAGE_NAME:$SAFE_BRANCH_NAME-$TRAVIS_COMMIT" && if [ "$TRAVIS_TAG" != "" ]; then docker push "$IMAGE_NAME:$TRAVIS_TAG"; fi
-  on:
-    tags: true
-    all_branches: true
+  script: docker push "$IMAGE_NAME:$SAFE_BRANCH_NAME-latest && docker push "$IMAGE_NAME:$SAFE_BRANCH_NAME-$TRAVIS_COMMIT" && if [ "$TRAVIS_TAG" != "" ]; then docker push "$IMAGE_NAME:$TRAVIS_TAG"; fi
 
 env:
   global:
