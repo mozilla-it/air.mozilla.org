@@ -21,7 +21,8 @@ before_deploy:
 deploy:
   provider: script
   on:
-    all_branch: true
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|prod)$
   script: docker push "$IMAGE_NAME:$SAFE_BRANCH_NAME-latest" && docker push "$IMAGE_NAME:$SAFE_BRANCH_NAME-$TRAVIS_COMMIT" && if [ "$TRAVIS_TAG" != "" ]; then docker push "$IMAGE_NAME:$TRAVIS_TAG"; fi
 
 env:
