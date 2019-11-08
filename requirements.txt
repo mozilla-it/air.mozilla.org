@@ -26,7 +26,7 @@ raven==6.10.0
 rcssmin==1.0.6            # via django-compressor
 requests==2.22.0
 rjsmin==1.1.0             # via django-compressor
-six==1.12.0               # via django-appconf, django-extensions, pyscss, python-dateutil, python-memcached
+six==1.13.0               # via django-appconf, django-extensions, pyscss, python-dateutil, python-memcached
 sqlparse==0.3.0           # via django
 urllib3==1.25.6           # via requests
 werkzeug==0.16.0
