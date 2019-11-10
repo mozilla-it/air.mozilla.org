@@ -5,6 +5,7 @@ branches:
 services:
   - docker
 before_script:
+  - env | grep TRAVIS
   - SAFE_BRANCH_NAME=$(echo -n $TRAVIS_BRANCH | perl -pe's/[^a-zA-Z0-9_.-]/_/g' )
   - REVISION_TAG="$SAFE_BRANCH_NAME-$TRAVIS_COMMIT"
   - if [ "$TRAVIS_TAG" == "" ]; then SYMBOLIC_TAG="$SAFE_BRANCH_NAME-latest"; else SYMBOLIC_TAG="$TRAVIS_TAG"; fi
