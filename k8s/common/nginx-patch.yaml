@@ -25,11 +25,3 @@ spec:
           requests:
             cpu: 500m
             memory: 256Mi
----
-apiVersion: v1
-kind: ConfigMap
-data:
-  # Mozilla TLS observatory recommended value
-  hsts-max-age: "15768000"
-metadata:
-  name: nginx-configuration

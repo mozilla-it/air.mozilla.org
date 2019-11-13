@@ -6,6 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "Strict-Transport-Security: max-age=15768000";
       more_set_headers "X-Frame-Options: SAMEORIGIN";
       more_set_headers "X-Content-Type-Options: nosniff";
       more_set_headers "Content-Security-Policy: default-src 'none'; connect-src 'self'; font-src https://fonts.gstatic.com; img-src 'self' https://onlinexperiences.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://js-agent.newrelic.com https://bam.nr-data.net https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtm.js; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com";
