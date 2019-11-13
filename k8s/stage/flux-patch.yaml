@@ -12,7 +12,7 @@ spec:
           $setElementOrder/containers:
           - name: events
           containers:
-          - image: itsre/airmozilla:master-f93b6af4b54aebecf16244993843938ab06a48ba
+          - image: itsre/airmozilla:master-c02c26fb23caccdc43f17018c03c955c7e0a6077
             name: events
 ---
 apiVersion: apps/v1
@@ -28,8 +28,8 @@ spec:
       $setElementOrder/initContainers:
       - name: migrate
       containers:
-      - image: itsre/airmozilla:master-f93b6af4b54aebecf16244993843938ab06a48ba
+      - image: itsre/airmozilla:master-c02c26fb23caccdc43f17018c03c955c7e0a6077
         name: web
       initContainers:
-      - image: itsre/airmozilla:master-f93b6af4b54aebecf16244993843938ab06a48ba
+      - image: itsre/airmozilla:master-c02c26fb23caccdc43f17018c03c955c7e0a6077
         name: migrate
