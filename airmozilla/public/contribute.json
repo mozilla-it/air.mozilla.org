@@ -2,9 +2,9 @@
     "name": "AirMoFront",
     "description": "The public-facing front page of air.mozilla.org",
     "repository": {
-        "url": "https://github.com/mozilla-itcloud/air.mozilla.org",
+        "url": "https://github.com/mozilla-it/air.mozilla.org",
         "type": "git",
-        "clone": "https://github.com/mozilla-itcloud/air.mozilla.org.git"
+        "clone": "https://github.com/mozilla-it/air.mozilla.org.git"
     },
     "participate": {
         "home": "https://wiki.mozilla.org/Webdev/GetInvolved/mozilla.org",

@@ -24,7 +24,7 @@ There is a staging version of the application at [https://air.allizom.org](https
 ## Maintenance Workflow
 
 We accept pull requests into this repository
-[https://mozilla-itcloud/air.mozilla.org](https://mozilla-itcloud/air.mozilla.org)
+[https://mozilla-it/air.mozilla.org](https://mozilla-it/air.mozilla.org)
 with proposed changes.
 
 When a change is merged to master, it's automatically deployed to our staging environment.
