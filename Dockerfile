@@ -1,13 +1,19 @@
 #https://github.com/tiangolo/uwsgi-nginx-docker
 FROM tiangolo/uwsgi-nginx:python3.7
 
-MAINTAINER Philippe M. Chiasson <gozer@mozilla.com>
+ARG MAINTAINER="Philippe M. Chiasson <gozer@mozilla.com>"
 ARG BRANCH="master"
 ARG COMMIT="local-build"
+ARG TAG=""
 ARG REPO="local"
+
 LABEL branch=${BRANCH}
 LABEL commit=${COMMIT}
+LABEL tag=$TAG
 LABEL repo=https://github.com/${REPO}
+LABEL maintainer=${MAINTAINER}
+
+MAINTAINER ${MAINTAINER}
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
