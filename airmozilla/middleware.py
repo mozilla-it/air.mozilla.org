@@ -1,4 +1,5 @@
 import logging
+import newrelic.agent
 
 from django.http import HttpResponse, HttpResponseServerError
 
@@ -21,12 +22,15 @@ class HealthCheckMiddleware(object):
         """
         Returns that the server is alive.
         """
+        newrelic.agent.ignore_transaction(flag=True)
         return HttpResponse('OK')
 
     def readiness(self, request):
         # Connect to each database and do a generic standard SQL query
         # that doesn't write any data and doesn't depend on any tables
         # being present.
+        newrelic.agent.ignore_transaction(flag=True)
+
         try:
             from django.db import connections
             for name in connections:
