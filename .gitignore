@@ -11,3 +11,4 @@ settings_local.py
 /backups/
 /.env
 /.deployment_virtualenv/
+terraform/.terraform
