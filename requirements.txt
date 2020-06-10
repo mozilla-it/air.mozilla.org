@@ -9,7 +9,7 @@ chardet==3.0.4            # via requests
 dj-database-url==0.5.0    # via -r requirements.in
 django-appconf==1.0.3     # via django-compressor
 django-backupdb==0.7.0    # via -r requirements.in
-django-compressor==2.3    # via -r requirements.in
+django-compressor==2.4    # via -r requirements.in
 django-dotenv==1.4.2      # via -r requirements.in
 django-extensions==2.2.5  # via -r requirements.in
 django-pyscss==2.0.2      # via -r requirements.in
@@ -26,7 +26,7 @@ raven==6.10.0             # via -r requirements.in
 rcssmin==1.0.6            # via django-compressor
 requests==2.23.0          # via -r requirements.in
 rjsmin==1.1.0             # via django-compressor
-six==1.13.0               # via django-extensions, python-dateutil, python-memcached
+six==1.13.0               # via django-appconf, django-compressor, django-extensions, pyscss, python-dateutil, python-memcached
 sqlparse==0.3.0           # via django
 urllib3==1.25.7           # via requests
 werkzeug==0.16.0          # via -r requirements.in
