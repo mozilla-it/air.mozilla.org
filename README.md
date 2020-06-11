@@ -21,6 +21,14 @@ The production application lives at [https://air.mozilla.org](https://air.mozill
 
 There is a staging version of the application at [https://air.allizom.org](https://air.allizom.org)
 
+## Deploy
+
+Deployments are performed automatically by FluxCD, choosing the environment depending on which branch the merge happens.
+
+Deploying to Production happens after a commit is merged to `master' or `prod` AND tagged with `v0.*`.
+
+Deploying to Staging happens after a new commit is merged to `master` branch.
+
 ## Maintenance Workflow
 
 We accept pull requests into this repository
