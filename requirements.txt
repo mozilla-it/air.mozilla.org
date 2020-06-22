@@ -16,9 +16,9 @@ django-pyscss==2.0.2      # via -r requirements.in
 django==2.2.13            # via -r requirements.in, django-backupdb, django-pyscss
 idna==2.8                 # via requests
 lxml==4.4.2               # via -r requirements.in
-newrelic==5.4.0.132       # via -r requirements.in
+newrelic==5.14.1.144      # via -r requirements.in
 psycopg2==2.8.4           # via -r requirements.in
-pyscss==1.3.5             # via django-pyscss
+pyscss==1.3.7             # via django-pyscss
 python-dateutil==2.8.1    # via -r requirements.in
 python-memcached==1.59    # via -r requirements.in
 pytz==2019.3              # via django
@@ -26,7 +26,7 @@ raven==6.10.0             # via -r requirements.in
 rcssmin==1.0.6            # via django-compressor
 requests==2.23.0          # via -r requirements.in
 rjsmin==1.1.0             # via django-compressor
-six==1.13.0               # via django-appconf, django-compressor, django-extensions, pyscss, python-dateutil, python-memcached
+six==1.13.0               # via django-compressor, django-extensions, python-dateutil, python-memcached
 sqlparse==0.3.0           # via django
 urllib3==1.25.7           # via requests
 werkzeug==0.16.0          # via -r requirements.in
