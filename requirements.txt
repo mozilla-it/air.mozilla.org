@@ -29,4 +29,4 @@ rjsmin==1.1.0             # via django-compressor
 six==1.13.0               # via django-compressor, django-extensions, python-dateutil, python-memcached
 sqlparse==0.3.0           # via django
 urllib3==1.25.7           # via requests
-werkzeug==0.16.0          # via -r requirements.in
+werkzeug==1.0.1           # via -r requirements.in
