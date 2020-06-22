@@ -11,7 +11,7 @@ django-appconf==1.0.3     # via django-compressor
 django-backupdb==0.7.0    # via -r requirements.in
 django-compressor==2.4    # via -r requirements.in
 django-dotenv==1.4.2      # via -r requirements.in
-django-extensions==2.2.5  # via -r requirements.in
+django-extensions==2.2.9  # via -r requirements.in
 django-pyscss==2.0.2      # via -r requirements.in
 django==2.2.9             # via -r requirements.in, django-backupdb, django-pyscss
 idna==2.8                 # via requests
