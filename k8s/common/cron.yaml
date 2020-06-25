@@ -18,7 +18,7 @@ spec:
           restartPolicy: "OnFailure"
           containers:
           - name: events
-            image: itsre/airmozilla:1
+            image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:1
             args:
             - /usr/local/bin/python
             - /app/manage.py
