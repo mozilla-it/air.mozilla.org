@@ -15,7 +15,7 @@ spec:
     spec:
       initContainers:
       - name: migrate
-        image: itsre/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
+        image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
         command:
           - python
           - manage.py
@@ -50,7 +50,7 @@ spec:
                 key: database.password
       containers:
       - name: web
-        image: itsre/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
+        image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:k8s-ee2a5285e00a73ef76758f060bdb9d19cd005a0d
         ports:
         - containerPort: 80
         livenessProbe:

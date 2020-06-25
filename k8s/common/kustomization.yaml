@@ -21,7 +21,7 @@ patchesJson6902:
     name: nginx-ingress-role
   path: rbac-patch.yaml
 images:
-- name: itsre/airmozilla
+- name: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla
   newTag: latest
 commonLabels:
   owner: gozer

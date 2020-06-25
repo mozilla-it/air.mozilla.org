@@ -25,9 +25,9 @@ There is a staging version of the application at [https://air.allizom.org](https
 
 Deployments are performed automatically by FluxCD, choosing the environment depending on which branch the merge happens.
 
-Deploying to Production happens after a commit is merged to `master' or `prod` AND tagged with `v0.*`.
+Deploying to **Production** happens after a commit is merged to (`master` OR `prod`) AND tagged with `v0.\*`.
 
-Deploying to Staging happens after a new commit is merged to `master` branch.
+Deploying to **Stage** happens after a new commit is merged to `master` branch.
 
 ## Maintenance Workflow
 
