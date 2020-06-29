@@ -12,7 +12,7 @@ spec:
           $setElementOrder/containers:
           - name: events
           containers:
-          - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-a6d5f8b24d39a211d8cf30c773a8054a7c407718
+          - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-6f27f55ee794c49e495e6142b49e8d9136c15401
             name: events
 ---
 apiVersion: apps/v1
@@ -28,8 +28,8 @@ spec:
       $setElementOrder/initContainers:
       - name: migrate
       containers:
-      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-a6d5f8b24d39a211d8cf30c773a8054a7c407718
+      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-6f27f55ee794c49e495e6142b49e8d9136c15401
         name: web
       initContainers:
-      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-a6d5f8b24d39a211d8cf30c773a8054a7c407718
+      - image: 783633885093.dkr.ecr.us-west-2.amazonaws.com/airmozilla:master-6f27f55ee794c49e495e6142b49e8d9136c15401
         name: migrate
