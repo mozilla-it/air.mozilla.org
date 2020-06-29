@@ -21,13 +21,16 @@ The production application lives at [https://air.mozilla.org](https://air.mozill
 
 There is a staging version of the application at [https://air.allizom.org](https://air.allizom.org)
 
-## Deploy
+## Deployments
 
 Deployments are performed automatically by FluxCD, choosing the environment depending on which branch the merge happens.
 
-Deploying to **Production** happens after a commit is merged to (`master` OR `prod`) AND tagged with `v0.\*`.
+The logic of tagging the Docker containers is done by TravisCI, following the next rules:
 
+Deploying to **Production** happens after a commit is merged to (`master` OR `prod`) AND tagged with `v0.\*`.
 Deploying to **Stage** happens after a new commit is merged to `master` branch.
+
+Note: Currently FluxCD is configured to rendered manifests from the `prod` branch instead of master. This is confusing at first, but will be deprecated once we removie the Kustomization process in favor of Helm Charts.
 
 ## Maintenance Workflow
 
